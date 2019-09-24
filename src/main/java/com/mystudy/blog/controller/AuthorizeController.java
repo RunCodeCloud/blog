@@ -1,7 +1,9 @@
 package com.mystudy.blog.controller;
 
+import com.mystudy.blog.bean.User;
 import com.mystudy.blog.dto.AccessTokenDTO;
 import com.mystudy.blog.dto.GitHubUser;
+import com.mystudy.blog.mapper.UserMapper;
 import com.mystudy.blog.provider.GitHubProvider;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +13,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.UUID;
 
 @Controller
 public class AuthorizeController {
 
     @Autowired
+    HttpServletRequest request;
+    @Autowired
     GitHubProvider gitHubProvider;
+    @Resource
+    UserMapper userMapper;
 
     @Value(value = "${github.client.id}")
     private String clientId;
@@ -40,6 +49,22 @@ public class AuthorizeController {
 
         String accessToken = gitHubProvider.getAccessToken(accessTokenDTO);
         GitHubUser gitHubUser = gitHubProvider.getGitHubUser(accessToken);
-        return "index";
+        System.out.println(gitHubUser.getId());
+
+
+        if(gitHubUser!=null){
+            User user = new User();
+            user.setToken(UUID.randomUUID().toString());
+            user.setName(gitHubUser.getName());
+            user.setAccountId(gitHubUser.getId().toString());
+            user.setGmtCreate(System.currentTimeMillis());
+            user.setGetModified(user.getGmtCreate());
+
+            userMapper.insertUser(user);
+            request.getSession().setAttribute("user",gitHubUser);
+            return "redirect:/hello";
+        }else {
+            return "redirect:/hello";
+        }
     }
 }
