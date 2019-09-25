@@ -8,6 +8,15 @@ public class User {
     private String token;
     private Long gmtCreate;
     private Long getModified;
+    private String img_url;
+
+    public String getImg_url() {
+        return img_url;
+    }
+
+    public void setImg_url(String img_url) {
+        this.img_url = img_url;
+    }
 
     public Integer getId() {
         return id;
@@ -66,6 +75,7 @@ public class User {
                 ", token='" + token + '\'' +
                 ", gmtCreate=" + gmtCreate +
                 ", getModified=" + getModified +
+                ", img_url='" + img_url + '\'' +
                 '}';
     }
 }
