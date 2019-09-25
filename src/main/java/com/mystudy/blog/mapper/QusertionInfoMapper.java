@@ -15,4 +15,7 @@ public interface QusertionInfoMapper {
 
     @Select(value = "select * from question_info")
     List<QuestionInfo> findAll();
+
+    @Select(value = "select * from question_info limit #{offset},#{pageSize}")
+    List<QuestionInfo> findByPage(Integer offset,Integer pageSize);
 }
