@@ -41,6 +41,26 @@ public class QuestionDtoService {
         //page.getNextPage() 下一页
     }
 
+    public List<QuestionDto> findByPage(Integer id,Integer pageNum, Integer pageSize){
+
+        Integer offset = pageSize*(pageNum-1);
+        List<QuestionInfo> list1 = qusertionInfoMapper.findByUserIdAndLimit(id,offset,pageSize);
+        List<QuestionDto> dtoList = convertFromInfo(list1);
+        return dtoList;
+    }
+
+    public QuestionDto findById(Integer id){
+        QuestionInfo questionInfo =  qusertionInfoMapper.findById(id);
+
+        if(questionInfo==null){
+            return null;
+        }
+        QuestionDto questionDto = new QuestionDto();
+        BeanUtils.copyProperties(questionInfo,questionDto);
+        return questionDto;
+    }
+
+
     public List<QuestionDto>  findAll(){
 
         List<QuestionInfo> list =  qusertionInfoMapper.findAll();

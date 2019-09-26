@@ -5,6 +5,7 @@ import com.mystudy.blog.dto.AccessTokenDTO;
 import com.mystudy.blog.dto.GitHubUser;
 import com.mystudy.blog.mapper.UserMapper;
 import com.mystudy.blog.provider.GitHubProvider;
+import com.mystudy.blog.service.UserService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,6 +26,10 @@ public class AuthorizeController {
 
     @Autowired
     GitHubProvider gitHubProvider;
+
+    @Resource
+    UserService service;
+
     @Resource
     UserMapper userMapper;
 
@@ -53,23 +58,35 @@ public class AuthorizeController {
         GitHubUser gitHubUser = gitHubProvider.getGitHubUser(accessToken);
 
         if(gitHubUser!=null){
-            User user = new User();
-            String token = UUID.randomUUID().toString();
-            user.setToken(token);
-            user.setName(gitHubUser.getName());
-            if (gitHubUser.getId()!=null){
+            User u = service.findUserByAccountId(gitHubUser.getId().toString());
+            if(u==null){
+                User user = new User();
+                String token = UUID.randomUUID().toString();
+                user.setToken(token);
+                user.setName(gitHubUser.getName());
                 user.setAccountId(gitHubUser.getId().toString());
-            }
-            user.setGmtCreate(System.currentTimeMillis());
-            user.setGetModified(user.getGmtCreate());
+                user.setGmtCreate(System.currentTimeMillis());
+                user.setGetModified(user.getGmtCreate());
+                user.setImg_url(gitHubUser.getAvatar_url());
 
-            user.setImg_url(gitHubUser.getAvatar_url());
-            userMapper.insertUser(user);
-            /*request.getSession().setAttribute("user",gitHubUser);*/
-            response.addCookie(new Cookie("token",token));
+                userMapper.insertUser(user);
+                response.addCookie(new Cookie("token",token));
+            }else {
+                response.addCookie(new Cookie("token",u.getToken()));
+            }
             return "redirect:/hello";
         }else {
             return "redirect:/hello";
         }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request,
+                         HttpServletResponse response){
+        request.getSession().removeAttribute("user");
+        Cookie cookie = new Cookie("token",null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        return "redirect:/hello";
     }
 }

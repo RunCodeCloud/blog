@@ -39,14 +39,7 @@ public class LoginController {
                         @RequestParam(value = "pageSize",defaultValue="1")Integer pageSize,
                         HttpServletRequest request,
                         Model model){
-        Cookie[] cookies = request.getCookies();
-        for(Cookie cookie: cookies){
-            if("token".equals(cookie.getName())){
-                User user = userMapper.findByToken(cookie.getValue());
-                request.getSession().setAttribute("user",user);
-                break;
-            }
-        }
+
         //显示第几页内容  一页几条数据
         List<QuestionDto> list = service.findByPage(pageNo,pageSize);
         model.addAttribute("questions",list);

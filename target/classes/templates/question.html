@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${question.title}"></title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/profile.css">
+    <link rel="stylesheet" href="../static/css/publish.css">
+    <link rel="stylesheet" href="../static/css/question.css">
+    <script src="../static/jqurey/jquery-1.11.3.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:insert="~{navigate::nav}"></div>
+<div class="container-fluid main profile">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <h4><span th:text="${question.title}"></span></h4>
+            <span class="text-des">
+                        作者:<span th:text="${question.user.getName()}"></span> |
+                        发布时间:<span th:text="${#dates.format(question.gmt_create,'yyyy-MM-dd')}"></span> |
+                        阅读数:<span th:text="${question.view_count}"></span>
+            </span>
+            <hr class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <span class="col-lg-9 col-md-12 col-sm-12 col-xs-12" th:text="${question.description}"></span><br>
+            <hr class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <a th:href="'/publish/'+${question.id}" class="comment-menu">
+                <span class="col-lg-9 col-md-12 col-sm-12 col-xs-12 glyphicon glyphicon-pencil" aria-hidden="true">编辑</span>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div>
+                <h4>发起人</h4>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-rounded" th:src="${question.user.img_url}">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="media-heading" th:text="${question.user.getName()}"></h5>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div>
+                <h4>相关问题</h4>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

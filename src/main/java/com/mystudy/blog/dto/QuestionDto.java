@@ -16,6 +16,8 @@ public class QuestionDto {
     private Integer view_count;
     private Integer like_count;
 
+    private User user;
+
     public Integer getComment_count() {
         return comment_count;
     }
@@ -39,8 +41,6 @@ public class QuestionDto {
     public void setLike_count(Integer like_count) {
         this.like_count = like_count;
     }
-
-    private User user;
 
     public Integer getId() {
         return id;

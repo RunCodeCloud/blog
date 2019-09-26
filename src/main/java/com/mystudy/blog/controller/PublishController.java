@@ -7,10 +7,7 @@ import com.mystudy.blog.mapper.UserMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
@@ -24,6 +21,23 @@ public class PublishController {
     @Resource
     QusertionInfoMapper qusertionInfoMapper;
 
+    @RequestMapping(value = "/publish/{id}",method = {RequestMethod.GET})
+    public String edit(@PathVariable(name = "id")Integer id,
+                       Model model){
+
+        QuestionInfo info =  qusertionInfoMapper.findById(id);
+        String title = info.getTitle();
+        String description = info.getDescription();
+        String tag = info.getTag();
+
+        model.addAttribute("title",title);
+        model.addAttribute("description",description);
+        model.addAttribute("tag",tag);
+        model.addAttribute("id",id);
+        System.out.println("id>>>>"+id);
+        return "publish";
+    }
+
     @RequestMapping(value = "/publish",method = {RequestMethod.GET})
     public String publish(){
         return "publish";
@@ -32,6 +46,7 @@ public class PublishController {
     public String publish(@Param(value = "title")String title,
                           @Param(value = "description")String description,
                           @Param(value = "tag")String tag,
+                          @RequestParam(value = "id",required = false)Integer id,
                           HttpServletRequest request,
                           Model model){
 
@@ -52,31 +67,30 @@ public class PublishController {
             return "publish";
         }
 
-        User user = null;
-        Cookie[] cookies = request.getCookies();
-        for(Cookie cookie: cookies){
-            if("token".equals(cookie.getName())){
-                user = userMapper.findByToken(cookie.getValue());
-                if(user!=null){
-                    request.getSession().setAttribute("user",user);
-                }
-                break;
-            }
-        }
+        User user = (User) request.getSession().getAttribute("user");
 
         if(user!=null){
-            QuestionInfo questionInfo = new QuestionInfo();
-            questionInfo.setTitle(title);
-            questionInfo.setDescription(description);
-            questionInfo.setGmt_create(System.currentTimeMillis());
-            questionInfo.setGmt_modified(questionInfo.getGmt_create());
-            questionInfo.setCreator(user.getId());
-            questionInfo.setTag(tag);
 
-            qusertionInfoMapper.insertQuestionInfo(questionInfo);
+            QuestionInfo questionInfo = new QuestionInfo();
+            if(id==null||id==0){
+                questionInfo.setTitle(title);
+                questionInfo.setDescription(description);
+                questionInfo.setGmt_create(System.currentTimeMillis());
+                questionInfo.setGmt_modified(questionInfo.getGmt_create());
+                questionInfo.setCreator(user.getId());
+                questionInfo.setTag(tag);
+
+                questionInfo.setComment_count(0);
+                questionInfo.setView_count(0);
+                questionInfo.setLike_count(0);
+
+                qusertionInfoMapper.insertQuestionInfo(questionInfo);
+            }else {
+                qusertionInfoMapper.updateById(title,description,tag,id);
+            }
+
         }else {
             model.addAttribute("error","请先登录");
-            //request.getSession().setAttribute("error","请先登录");
             return "publish";
         }
         return "redirect:/hello";
