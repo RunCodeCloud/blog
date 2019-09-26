@@ -30,5 +30,5 @@ public interface QusertionInfoMapper {
     QuestionInfo findById(Integer id);
 
     @Update(value = "update question_info set title=#{title},description=#{description},tag=#{tag} where id=#{id}")
-    void updateById(String title,String description,String tag,Integer id);
+    int updateById(String title,String description,String tag,Integer id);
 }

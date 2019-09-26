@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>错误页</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../static/css/all.css">
+    <script src="../static/jqurey/jquery-1.11.3.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron">
+    <h1>出错啦</h1>
+    <P th:text="${message}">服务器太热了，稍后再试试吧</P>
+    <p><a class="btn btn-primary btn-lg" href="/hello" role="button">回到主页</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+/*index*/
+.media-object{
+    width: 38px;
+    height: 38px;
+}
+.text-des{
+    font-size: 12px;
+    font-weight: normal;
+    color: #999999;
+}
+
+/*profile*/
+.profile .section{
+    margin-top: 15px;
+}
+
+/*publish*/
+body{
+    background-color: #efefef;
+}
+.main{
+    background-color: white;
+    margin: 30px;
+}
+.btn-publish{
+    float: right;
+    margin-bottom: 15px;
+}
+
+/*question*/
+.comment-menu{
+    font-size: 12px;
+    font-weight: normal;
+    color: #999999;
+}
+
+/*error*/
+.jumbotron{
+    margin: 50px;
+}

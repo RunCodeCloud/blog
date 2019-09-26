@@ -2,6 +2,8 @@ package com.mystudy.blog.controller;
 
 import com.mystudy.blog.bean.QuestionInfo;
 import com.mystudy.blog.bean.User;
+import com.mystudy.blog.exception.ErrorEnum;
+import com.mystudy.blog.exception.MyException;
 import com.mystudy.blog.mapper.QusertionInfoMapper;
 import com.mystudy.blog.mapper.UserMapper;
 import org.apache.ibatis.annotations.Param;
@@ -86,7 +88,7 @@ public class PublishController {
 
                 qusertionInfoMapper.insertQuestionInfo(questionInfo);
             }else {
-                qusertionInfoMapper.updateById(title,description,tag,id);
+                int result = qusertionInfoMapper.updateById(title,description,tag,id);
             }
 
         }else {
