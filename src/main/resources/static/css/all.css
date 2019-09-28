@@ -3,6 +3,21 @@
     width: 38px;
     height: 38px;
 }
+
+.media-object1{
+    width: 38px;
+    height: 38px;
+}
+.media-body{
+    padding-top:10px ;
+}
+
+.reply{
+    font-size: 12px;
+    font-weight: normal;
+    color: #999999;
+}
+
 .text-des{
     font-size: 12px;
     font-weight: normal;
@@ -37,4 +52,59 @@ body{
 /*error*/
 .jumbotron{
     margin: 50px;
+}
+.closed .icon .icon1{
+    width: 20px;
+    height: 15px;
+    border-bottom: 1px #999999 solid;
+    border-top: 1px #999999 solid;
+    border-left: 1px #999999 solid;
+    padding-top: 1px;
+    text-align: center;
+    color: #999999;
+}
+.closed .icon .icon2{
+    width: 20px;
+    height: 15px;
+    border: 1px #999999 solid;
+    text-align: center;
+    margin-left: -3px;
+    margin-right: 5px;
+    padding-top: 1px;
+    color: #999999;
+}
+.closed .icon .icon3{
+    width: 20px;
+    height: 15px;
+    border: 1px #999999 solid;
+    text-align: center;
+    margin-right: 5px;
+    padding-top: 1px;
+    color: #999999;
+}
+.closed .icon .icon4{
+    width: 20px;
+    height: 15px;
+    border: 1px #999999 solid;
+    text-align: center;
+    margin-right: 5px;
+    padding-top: 1px;
+    background-color: honeydew;
+    color: #999999;
+}
+.closed .icon .icon1:hover{
+    background-color: #499ef3;
+    color: white;
+}
+.closed .icon .icon2:hover{
+    background-color: #499ef3;
+    color: white;
+}
+.closed .icon .icon3:hover{
+    background-color: #499ef3;
+    color: white;
+}
+.closed .icon .icon4:hover{
+    background-color: #499ef3;
+    color: white;
 }

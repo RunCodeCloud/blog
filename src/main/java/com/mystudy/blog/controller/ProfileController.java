@@ -59,7 +59,7 @@ public class ProfileController {
         List<QuestionDto> list = service.findByPage(user.getId(),pageNo,pageSize);
         model.addAttribute("questions",list);
 
-        Page<QuestionDto> page =  PageHelper.startPage(pageNo,pageSize);
+        PageHelper.startPage(pageNo,pageSize);
         List<QuestionInfo> info = qusertionInfoMapper.findByUserId(user.getId());
         PageInfo<QuestionInfo> pageInfo = new PageInfo<>(info,4);
         model.addAttribute("pageInfo",pageInfo);

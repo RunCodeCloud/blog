@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="../static/css/all.css">
     <script src="../static/jqurey/jquery-1.11.3.min.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
+    <script type="application/javascript">
+        window.onload = function () {
+            var close = window.localStorage.getItem("close");
+            if(close==="true"){
+                window.localStorage.removeItem("close");
+                window.close();
+            }
+        }
+    </script>
 </head>
 <body>
 <div th:insert="~{navigate::nav}"></div>

@@ -1,5 +1,7 @@
 package com.mystudy.blog.exception;
 
+import java.util.UUID;
+
 public class MyException extends RuntimeException{
 
     private String message;

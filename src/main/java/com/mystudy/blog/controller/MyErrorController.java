@@ -36,9 +36,6 @@ public class MyErrorController implements ErrorViewResolver {
         }else {
             mv.addObject("message","未知错误发生");
         }
-
-        System.out.println(status);
-        System.out.println(model.get("message"));
         return mv;
     }
 

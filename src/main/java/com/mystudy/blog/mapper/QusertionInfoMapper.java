@@ -1,6 +1,7 @@
 package com.mystudy.blog.mapper;
 
 import com.mystudy.blog.bean.QuestionInfo;
+import com.mystudy.blog.dto.QuestionDto;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -31,4 +32,10 @@ public interface QusertionInfoMapper {
 
     @Update(value = "update question_info set title=#{title},description=#{description},tag=#{tag} where id=#{id}")
     int updateById(String title,String description,String tag,Integer id);
+
+    @Update(value = "update question_info set view_count = #{view_count}+1 where id=#{id}")
+    int updateView(QuestionDto questionDto);
+
+    @Update(value = "update question_info set comment_count = #{comment_count}+1 where id=#{id}")
+    int updateComment(QuestionInfo questionInfo);
 }

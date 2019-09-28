@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../static/css/all.css">
     <script src="../static/jqurey/jquery-1.11.3.min.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/jqurey/question.js"></script>
 </head>
 <body>
 <div th:insert="~{navigate::nav}"></div>
@@ -19,16 +20,67 @@
                         作者:<span th:text="${question.user.getName()}"></span> |
                         发布时间:<span th:text="${#dates.format(question.gmt_create,'yyyy-MM-dd')}"></span> |
                         阅读数:<span th:text="${question.view_count}"></span>
+                        <a th:if="${question.user.id==session.user.id}" th:href="'/publish/'+${question.id}" class="comment-menu" style="margin-left: 10px"><span class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</span></a>
             </span>
-            <hr class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <span class="col-lg-9 col-md-12 col-sm-12 col-xs-12" th:text="${question.description}"></span><br>
-            <hr class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <a th:href="'/publish/'+${question.id}" class="comment-menu">
-                <span class="col-lg-9 col-md-12 col-sm-12 col-xs-12 glyphicon glyphicon-pencil" aria-hidden="true">编辑</span>
-            </a>
+            <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span class="col-lg-9 col-md-12 col-sm-12 col-xs-12" th:text="${question.description}"></span>
+            <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+            <!--回复-->
+            <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:each="comment:${comments}">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-rounded" th:src="${question.user.img_url}">
+                        </a>
+                    </div>
+                    <div class="media-body closed">
+                        <h6 class="media-heading reply" th:text="${question.user.getName()}"></h6>
+                        <h5>TypeError: "x" is read-only (Firefox) //格式错误:"x"只读。(x可以代表任意值)
+                            TypeError: 0 is read-only (Firefox) TypeError: Cannot assign to read only pr
+                            operty 'x' of #
+                        </h5>
+                        <a th:href="'/publish/'+${question.id}" class="comment-menu icon">
+                            <span class="glyphicon glyphicon-thumbs-up icon1" aria-hidden="true"></span>
+                        </a>
+                        <a th:href="'/publish/'+${question.id}" class="comment-menu icon">
+                            <span class="glyphicon glyphicon-thumbs-down icon2" aria-hidden="true"></span>
+                        </a>
+                        <a th:href="'/publish/'+${question.id}" class="comment-menu icon">
+                            <span class="glyphicon glyphicon glyphicon-comment icon3" aria-hidden="true"></span>
+                        </a>
+                        <a th:href="'/publish/'+${question.id}" class="comment-menu icon">
+                            <span class="glyphicon glyphicon-heart icon4" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </div>
+                <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            </div>
+
+            <!-- 个人-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 media" style="margin: 0px 16px;padding: 0px;">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-rounded" th:src="${question.user.img_url}">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h5 class="media-heading" style="color: #999999;font-size: 12px" th:text="${question.user.getName()}"></h5>
+                </div>
+            </div>
+            <!--隐藏域-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 media form-group">
+                <input type="hidden" id="parent_id" name="parent_id" th:value="${question.user.id}">
+                <input type="hidden" id="question_id" name="question_id" th:value="${question.id}">
+                <input type="hidden" id="type" name="type" th:value="1">
+                <textarea style="height: 160px;width: 880px;margin:0px 25px" name="content" id="content" class="form-control" cols="30" rows="10"></textarea>
+            </div>
+            <!-- 回复按钮-->
+            <button style="margin-right: 16px" type="submit" class="btn btn-success btn-publish" id="post">回复</button>
         </div>
 
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" style="border-left: 1px black solid">
             <div>
                 <h4>发起人</h4>
                 <div class="media">

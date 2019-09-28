@@ -26,10 +26,10 @@ public class QuestionDtoService {
     @Resource
     UserMapper userMapper;
 
-    public List<QuestionDto> findByPage(Integer pageNum, Integer pageSize){
+    public List<QuestionDto> findByPage(Integer pageNum, Integer pageSize) {
 
-        Integer offset = pageSize*(pageNum-1);
-        List<QuestionInfo> list1 = qusertionInfoMapper.findByPage(offset,pageSize);
+        Integer offset = pageSize * (pageNum - 1);
+        List<QuestionInfo> list1 = qusertionInfoMapper.findByPage(offset, pageSize);
         List<QuestionDto> dtoList = convertFromInfo(list1);
 
         return dtoList;
@@ -41,44 +41,53 @@ public class QuestionDtoService {
         //page.getNextPage() 下一页
     }
 
-    public List<QuestionDto> findByPage(Integer id,Integer pageNum, Integer pageSize){
+    public List<QuestionDto> findByPage(Integer id, Integer pageNum, Integer pageSize) {
 
-        Integer offset = pageSize*(pageNum-1);
-        List<QuestionInfo> list1 = qusertionInfoMapper.findByUserIdAndLimit(id,offset,pageSize);
+        Integer offset = pageSize * (pageNum - 1);
+        List<QuestionInfo> list1 = qusertionInfoMapper.findByUserIdAndLimit(id, offset, pageSize);
         List<QuestionDto> dtoList = convertFromInfo(list1);
         return dtoList;
     }
 
-    public QuestionDto findById(Integer id){
-        QuestionInfo questionInfo =  qusertionInfoMapper.findById(id);
+    public QuestionDto findById(Integer id) {
+        QuestionInfo questionInfo = qusertionInfoMapper.findById(id);
 
-        if(questionInfo==null){
+        if (questionInfo == null) {
             return null;
         }
         QuestionDto questionDto = new QuestionDto();
-        BeanUtils.copyProperties(questionInfo,questionDto);
+        BeanUtils.copyProperties(questionInfo, questionDto);
         return questionDto;
     }
 
 
-    public List<QuestionDto>  findAll(){
+    public List<QuestionDto> findAll() {
 
-        List<QuestionInfo> list =  qusertionInfoMapper.findAll();
+        List<QuestionInfo> list = qusertionInfoMapper.findAll();
         return convertFromInfo(list);
     }
 
-    public List<QuestionDto> convertFromInfo(List<QuestionInfo> list){
-        if(list==null){
+    public List<QuestionDto> convertFromInfo(List<QuestionInfo> list) {
+        if (list == null) {
             return null;
         }
         List<QuestionDto> questionDtoList = new ArrayList<>();
-        for(QuestionInfo info:list){
+        for (QuestionInfo info : list) {
             QuestionDto questionDto = new QuestionDto();
             User user = userMapper.findById(info.getCreator());
-            BeanUtils.copyProperties(info,questionDto);
+            BeanUtils.copyProperties(info, questionDto);
             questionDto.setUser(user);
             questionDtoList.add(questionDto);
         }
         return questionDtoList;
     }
+
+    //增加评论
+    public void updateView(QuestionDto questionDto){
+
+        qusertionInfoMapper.updateView(questionDto);
+    }
+
 }
+
+
