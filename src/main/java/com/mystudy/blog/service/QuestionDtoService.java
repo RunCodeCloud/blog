@@ -82,9 +82,7 @@ public class QuestionDtoService {
         return questionDtoList;
     }
 
-    //增加评论
     public void updateView(QuestionDto questionDto){
-
         qusertionInfoMapper.updateView(questionDto);
     }
 

@@ -1,6 +1,97 @@
 $(function () {
 
-    $('.closed').css('padding-top','0');
+    $(".iconboss1").click(function(){
+
+        var commentId = $(this).attr("var");
+        var status = $(this).attr("status");
+
+        alert($(this).attr("status"));
+
+        if(status==undefined){
+            $.ajax({
+                type:"POST",
+                url:"http://localhost:8080/comment/secondLevel",
+                data:{
+                    "commentId":commentId,
+                    "like":1
+                },
+                success:function(data){
+                    if(data.status=="success"){
+
+                        //改变点赞数
+                        var str = "#like"+commentId;
+                        $(str).text(data.like);
+
+                        //不能踩
+                        var str1 = "#dislike1"+commentId;
+                        $(str1).css("pointer-events","none");
+
+                        //改变status
+                        //$(this).attr("status","defined");
+                        $(this).prop("status","defined");
+                        alert($(this).attr("status"));
+                    }else {
+                        alert(data.message);
+                    }
+                },
+                error:function(data){
+                    alert("操作失败,原因为"+data.responseText);
+                }
+            });
+            return false;
+        }else {
+            $.ajax({
+                type:"POST",
+                url:"http://localhost:8080/comment/secondLevel",
+                data:{
+                    "commentId":commentId,
+                    "like":-1
+                },
+                success:function(data){
+                    if(data.status=="success"){
+
+                        //改变点赞数
+                        var str = "#like"+commentId;
+                        $(str).text(data.like);
+
+                        //能踩
+                        var str1 = "#dislike1"+commentId;
+                        $(str1).css("pointer-events","auto");
+                    }else {
+                        alert(data.message);
+                    }
+                },
+                error:function(data){
+                    alert("操作失败,原因为"+data.responseText);
+                }
+            });
+            return false;
+        }
+    });
+
+    $(".iconboss2").click(function(){
+        var commentId = $(this).attr("var");
+        $.ajax({
+            type:"POST",
+            url:"http://localhost:8080/comment/secondLevel",
+            data:{
+                "commentId":commentId,
+                "dislike":1
+            },
+            success:function(data){
+                if(data.status=="success"){
+                    var str = "#dislike"+commentId;
+                    $(str).text(data.dislike);
+                }else {
+                    alert(data.message);
+                }
+            },
+            error:function(data){
+                alert("操作失败,原因为"+data.responseText);
+            }
+        });
+        return false;
+    });
 
     $("#post").on("click",function(){
        var parent_id = $("#parent_id").val();

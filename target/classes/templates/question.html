@@ -28,31 +28,35 @@
 
 
             <!--回复-->
-            <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:each="comment:${comments}">
+            <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="comment!=null" th:each="comment:${comments}">
                 <div class="media">
                     <div class="media-left">
+                        <!--//comment应该在评论里包装一个user，在这里通过user得到信息-->
                         <a href="#">
-                            <img class="media-object img-rounded" th:src="${question.user.img_url}">
+                            <img class="media-object img-rounded" th:src="${comment.fail.img_url}">
                         </a>
                     </div>
                     <div class="media-body closed">
-                        <h6 class="media-heading reply" th:text="${question.user.getName()}"></h6>
-                        <h5>TypeError: "x" is read-only (Firefox) //格式错误:"x"只读。(x可以代表任意值)
-                            TypeError: 0 is read-only (Firefox) TypeError: Cannot assign to read only pr
-                            operty 'x' of #
+                        <h6 class="media-heading reply" th:text="${comment.fail.name}"></h6>
+                        <h5 th:text="${comment.content}">
                         </h5>
-                        <a th:href="'/publish/'+${question.id}" class="comment-menu icon">
+
+                        <!--th:href="'/publish/secondLevel'+${question.id}"-->
+                        <a th:id="'like1'+${comment.id}" class="comment-menu icon iconboss1" th:var="${comment.id}">
                             <span class="glyphicon glyphicon-thumbs-up icon1" aria-hidden="true"></span>
                         </a>
-                        <a th:href="'/publish/'+${question.id}" class="comment-menu icon">
+                        <a th:id="'dislike1'+${comment.id}" class="comment-menu icon iconboss2" th:var="${comment.id}">
                             <span class="glyphicon glyphicon-thumbs-down icon2" aria-hidden="true"></span>
                         </a>
-                        <a th:href="'/publish/'+${question.id}" class="comment-menu icon">
+                        <a th:href="'/publish/secondLevel'+${question.id}" class="comment-menu icon">
                             <span class="glyphicon glyphicon glyphicon-comment icon3" aria-hidden="true"></span>
                         </a>
-                        <a th:href="'/publish/'+${question.id}" class="comment-menu icon">
-                            <span class="glyphicon glyphicon-heart icon4" aria-hidden="true"></span>
-                        </a>
+                        <h5 class="text-des">
+                            赞:<span th:id="'like'+${comment.id}" th:text="${comment.like_count}"></span> |
+                            踩:<span th:id="'dislike'+${comment.id}"  th:text="${comment.dislike_count}"></span>|
+                            评论:<span th:id="'commentCount'+${comment.id}" th:text="${comment.dislike_count}"></span>|
+                            发布时间:<span th:text="${#dates.format(comment.getGmt_create(),'yyyy-MM-dd')}"></span>
+                        </h5>
                     </div>
                 </div>
                 <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

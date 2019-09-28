@@ -4,7 +4,6 @@ import com.mystudy.blog.bean.Comment;
 import com.mystudy.blog.bean.QuestionInfo;
 import com.mystudy.blog.bean.User;
 import com.mystudy.blog.dto.CommentDto;
-import com.mystudy.blog.error.ErrorHandler;
 import com.mystudy.blog.exception.ErrorEnum;
 import com.mystudy.blog.exception.MyException;
 import com.mystudy.blog.mapper.CommentMapper;
@@ -22,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class CommentController extends ErrorHandler {
+public class CommentController{
 
     @Resource
     QusertionInfoMapper qusertionInfoMapper;
@@ -30,6 +29,7 @@ public class CommentController extends ErrorHandler {
     @Resource
     CommentMapper commentMapper;
 
+    //一级评论
     @RequestMapping(value = "/comment",method = {RequestMethod.POST})
     @ResponseBody
     @Transactional
@@ -49,17 +49,17 @@ public class CommentController extends ErrorHandler {
         String content = commentDto.getContent();
         String type = commentDto.getType();
 
-        if(parent_id==null){
+        if(parent_id==null||parent_id==0){
             map.put("status","fail");
             map.put("message","评论内容不存在，或已删除");
            return map;
         }
-        if(content==null){
+        if(content==null||"".equals(content)){
             map.put("status","fail");
             map.put("message","评论内容不能为空");
             return map;
         }
-        if(type==null){
+        if(type==null||"".equals(type)){
             map.put("status","fail");
             map.put("message","评论失败");
             return map;
@@ -70,11 +70,13 @@ public class CommentController extends ErrorHandler {
         comment.setGmt_create(System.currentTimeMillis());
         comment.setGmt_modefied(System.currentTimeMillis());
         comment.setLike_count(0);
+        comment.setDislike_count(0);
+        comment.setComment_count(0);
         BeanUtils.copyProperties(commentDto,comment);
         commentMapper.insert(comment);
 
         QuestionInfo info = qusertionInfoMapper.findById(comment.getQuestion_id());
-        int result =  qusertionInfoMapper.updateComment(info);
+        qusertionInfoMapper.updateComment(info);
 
         //回复评论
         //回复问题
@@ -82,6 +84,42 @@ public class CommentController extends ErrorHandler {
         String url = "http://localhost:8080/question/"+info.getId();
         map.put("url",url);
         return map;
+    }
 
+    @RequestMapping(value = "/comment/secondLevel",method = {RequestMethod.POST})
+    @ResponseBody
+    public Object comment(@RequestParam(name = "commentId",defaultValue = "")Integer id,
+                          @RequestParam(name = "like",defaultValue = "0")Integer like,
+                          @RequestParam(name = "dislike",defaultValue = "0")Integer dislike,
+                          HttpServletRequest request){
+
+        Map<String,Object> map = new HashMap<>();
+
+        Comment comment = commentMapper.selectById(id);
+
+        if(like!=null&&like!=0){
+            if(like>0){
+                commentMapper.updateLike(comment);
+            }else {
+                commentMapper.updateLikeFun(comment);
+            }
+            Integer newLike = commentMapper.selectLike(id);
+            map.put("status","success");
+            map.put("like",newLike);
+        }else if(dislike!=null&&dislike!=0){
+            if(dislike>0){
+                commentMapper.updateDislike(comment);
+            }else {
+                commentMapper.updateDislikeFun(comment);
+            }
+            Integer newDisLike = commentMapper.selectDisLike(id);
+            map.put("status","success");
+            map.put("dislike",newDisLike);
+        }else {
+            map.put("status","fail");
+            map.put("message","操作失败");
+            return map;
+        }
+        return map;
     }
 }

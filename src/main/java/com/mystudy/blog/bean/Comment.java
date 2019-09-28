@@ -8,9 +8,27 @@ public class Comment {
     private Integer commentator;
     private Long gmt_create;
     private Long gmt_modefied;
-    private Integer like_count;
+    private Integer dislike_count;
     private String content;
     private Integer question_id;
+    private Integer like_count;
+    private Integer comment_count;
+
+    public Integer getComment_count() {
+        return comment_count;
+    }
+
+    public void setComment_count(Integer comment_count) {
+        this.comment_count = comment_count;
+    }
+
+    public Integer getDislike_count() {
+        return dislike_count;
+    }
+
+    public void setDislike_count(Integer dislike_count) {
+        this.dislike_count = dislike_count;
+    }
 
     public Integer getQuestion_id() {
         return question_id;
