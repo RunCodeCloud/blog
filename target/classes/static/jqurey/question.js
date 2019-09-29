@@ -5,9 +5,7 @@ $(function () {
         var commentId = $(this).attr("var");
         var status = $(this).attr("status");
 
-        alert($(this).attr("status"));
-
-        if(status==undefined){
+        if(status=="true"){
             $.ajax({
                 type:"POST",
                 url:"http://localhost:8080/comment/secondLevel",
@@ -27,9 +25,14 @@ $(function () {
                         $(str1).css("pointer-events","none");
 
                         //改变status
-                        //$(this).attr("status","defined");
-                        $(this).prop("status","defined");
-                        alert($(this).attr("status"));
+                        var str2 = "#like1"+commentId;
+                        $(str2).attr("status","false");
+                        //改变css
+                        var str3 = "#icon1"+commentId;
+                        $(str3).css("backgroundColor","#499ef3");
+                        $(str3).css("color","white");
+
+                        alert("点赞成功");
                     }else {
                         alert(data.message);
                     }
@@ -57,6 +60,15 @@ $(function () {
                         //能踩
                         var str1 = "#dislike1"+commentId;
                         $(str1).css("pointer-events","auto");
+
+                        //改变status
+                        var str2 = "#like1"+commentId;
+                        $(str2).attr("status","true");
+                        //改变css
+                        var str3 = "#icon1"+commentId;
+                        $(str3).css("backgroundColor","white");
+                        $(str3).css("color","#999999");
+                        alert("取消点赞");
                     }else {
                         alert(data.message);
                     }
@@ -71,17 +83,113 @@ $(function () {
 
     $(".iconboss2").click(function(){
         var commentId = $(this).attr("var");
+        var status = $(this).attr("status");
+
+        if(status=="true"){
+            $.ajax({
+                type:"POST",
+                url:"http://localhost:8080/comment/secondLevel",
+                data:{
+                    "commentId":commentId,
+                    "dislike":1
+                },
+                success:function(data){
+                    if(data.status=="success"){
+                        //改变踩值
+                        var str = "#dislike"+commentId;
+                        $(str).text(data.dislike);
+                        //不能点赞
+                        var str1 = "#like1"+commentId;
+                        $(str1).css("pointer-events","none");
+                        //改变status
+                        var str2 = "#dislike1"+commentId;
+                        $(str2).attr("status","false");
+
+                        //改变css
+                        var str3 = "#icon2"+commentId;
+                        $(str3).css("backgroundColor","#499ef3");
+                        $(str3).css("color","white");
+                        alert("点踩成功");
+                    }else {
+                        alert(data.message);
+                    }
+                },
+                error:function(data){
+                    alert("操作失败,原因为"+data.responseText);
+                }
+            });
+            return false;
+        }else {
+            $.ajax({
+                type:"POST",
+                url:"http://localhost:8080/comment/secondLevel",
+                data:{
+                    "commentId":commentId,
+                    "dislike":-1
+                },
+                success:function(data){
+                    if(data.status=="success"){
+                        //改变踩值
+                        var str = "#dislike"+commentId;
+                        $(str).text(data.dislike);
+                        //能点赞
+                        var str1 = "#like1"+commentId;
+                        $(str1).css("pointer-events","auto");
+                        //改变status
+                        var str2 = "#dislike1"+commentId;
+                        $(str2).attr("status","true");
+
+                        //改变css
+                        var str3 = "#icon2"+commentId;
+                        $(str3).css("backgroundColor","white");
+                        $(str3).css("color","#999999");
+                        alert("取消点踩");
+
+                    }else {
+                        alert(data.message);
+                    }
+                },
+                error:function(data){
+                    alert("操作失败,原因为"+data.responseText);
+                }
+            });
+            return false;
+        }
+    });
+
+    $(".iconboss3").click(function(){
+        var commentId = $(this).attr("var");
+        var status = $(this).attr("status");
+
+        //弹出二级回复框
+        if(status=="true"){
+
+        }
+
         $.ajax({
             type:"POST",
-            url:"http://localhost:8080/comment/secondLevel",
+            url:"http://localhost:8080/comment/level",
             data:{
                 "commentId":commentId,
                 "dislike":1
             },
             success:function(data){
                 if(data.status=="success"){
+                    //改变踩值
                     var str = "#dislike"+commentId;
                     $(str).text(data.dislike);
+                    //不能点赞
+                    var str1 = "#like1"+commentId;
+                    $(str1).css("pointer-events","none");
+                    //改变status
+                    var str2 = "#dislike1"+commentId;
+                    $(str2).attr("status","false");
+
+                    //改变css
+                    var str3 = "#icon2"+commentId;
+                    $(str3).css("backgroundColor","#499ef3");
+                    $(str3).css("color","white");
+                    alert("点踩成功");
                 }else {
                     alert(data.message);
                 }
@@ -92,6 +200,7 @@ $(function () {
         });
         return false;
     });
+
 
     $("#post").on("click",function(){
        var parent_id = $("#parent_id").val();

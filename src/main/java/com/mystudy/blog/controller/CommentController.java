@@ -66,13 +66,15 @@ public class CommentController{
         }
 
         Comment comment = new Comment();
+        BeanUtils.copyProperties(commentDto,comment);
+
         comment.setCommentator(user.getId());
         comment.setGmt_create(System.currentTimeMillis());
         comment.setGmt_modefied(System.currentTimeMillis());
         comment.setLike_count(0);
         comment.setDislike_count(0);
         comment.setComment_count(0);
-        BeanUtils.copyProperties(commentDto,comment);
+        //打印
         commentMapper.insert(comment);
 
         QuestionInfo info = qusertionInfoMapper.findById(comment.getQuestion_id());
@@ -122,4 +124,15 @@ public class CommentController{
         }
         return map;
     }
+
+    /*//回复评论
+    @RequestMapping(value = "/comment/level",method = {RequestMethod.POST})
+    @ResponseBody
+    public Object comment(@RequestParam(name = "comment",defaultValue = "")String comment,
+                          HttpServletRequest request){
+
+        Map<String,Object> map = new HashMap<>();
+
+        return map;
+    }*/
 }

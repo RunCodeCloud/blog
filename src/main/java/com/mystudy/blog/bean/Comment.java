@@ -101,4 +101,21 @@ public class Comment {
     public void setLike_count(Integer like_count) {
         this.like_count = like_count;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", parent_id=" + parent_id +
+                ", type='" + type + '\'' +
+                ", commentator=" + commentator +
+                ", gmt_create=" + gmt_create +
+                ", gmt_modefied=" + gmt_modefied +
+                ", dislike_count=" + dislike_count +
+                ", content='" + content + '\'' +
+                ", question_id=" + question_id +
+                ", like_count=" + like_count +
+                ", comment_count=" + comment_count +
+                '}';
+    }
 }
