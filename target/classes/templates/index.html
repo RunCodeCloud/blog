@@ -89,9 +89,6 @@
                 <li th:if="!${pageInfo.hasNextPage}">
                     <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
                 </li>
-
-                <!--glyphicon glyphicon-home-->
-
                 <li>
                     <a aria-label="Next" th:if="${pageInfo.hasNextPage}" th:href="'?pageNo='+${pageInfo.pages}">
                         <span aria-hidden="true" class="glyphicon glyphicon-flag"></span>

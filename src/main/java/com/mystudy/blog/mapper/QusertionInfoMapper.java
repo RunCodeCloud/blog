@@ -21,6 +21,9 @@ public interface QusertionInfoMapper {
     @Select(value = "select * from question_info order  by gmt_create Desc limit #{offset},#{pageSize}")
     List<QuestionInfo> findByPage(Integer offset,Integer pageSize);
 
+    @Select(value = "select * from question_info where title like #{req} order  by gmt_create Desc limit #{offset},#{pageSize}")
+    List<QuestionInfo> findByPageAndReq(String req,Integer offset,Integer pageSize);
+
     @Select(value = "select * from question_info where creator=#{userId} order  by gmt_create Desc limit #{offset},#{pageSize}")
     List<QuestionInfo> findByUserIdAndLimit(Integer userId,Integer offset,Integer pageSize);
 

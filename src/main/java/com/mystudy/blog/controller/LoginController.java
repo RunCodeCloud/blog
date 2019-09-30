@@ -37,12 +37,22 @@ public class LoginController {
     @RequestMapping(value = "/hello",method = {RequestMethod.GET})
     public String hello(@RequestParam(value = "pageNo",defaultValue = "1")Integer pageNo,
                         @RequestParam(value = "pageSize",defaultValue="5")Integer pageSize,
+                        @RequestParam(value = "request",defaultValue = "false")String req,
                         HttpServletRequest request,
                         Model model){
 
-        //显示第几页内容  一页几条数据
-        List<QuestionDto> list = service.findByPage(pageNo,pageSize);
-        model.addAttribute("questions",list);
+
+
+        //条件查询，查询问题title关键字    req
+        if("false".equals(req)||req==null){
+            //显示第几页内容  一页几条数据
+            List<QuestionDto> list = service.findByPage(pageNo,pageSize);
+            model.addAttribute("questions",list);
+        }else {
+            String newReq = "%"+req+"%";
+            List<QuestionDto> list = service.findByPageAndReq(newReq,pageNo,pageSize);
+            model.addAttribute("questions",list);
+        }
 
         Page<QuestionDto> page =  PageHelper.startPage(pageNo,pageSize);
         List<QuestionInfo> infos = qusertionInfoMapper.findAll();
@@ -51,8 +61,6 @@ public class LoginController {
 
         List<QuestionInfo> hotQuestion = qusertionInfoMapper.findHostQuestion();
         model.addAttribute("hotQuestion",hotQuestion);
-
-        System.out.println(hotQuestion.size());
 
         return "index";
     }

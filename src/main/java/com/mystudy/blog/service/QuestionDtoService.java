@@ -41,6 +41,15 @@ public class QuestionDtoService {
         //page.getNextPage() 下一页
     }
 
+    public List<QuestionDto> findByPageAndReq(String req,Integer pageNum, Integer pageSize) {
+
+        Integer offset = pageSize * (pageNum - 1);
+        List<QuestionInfo> list1 = qusertionInfoMapper.findByPageAndReq(req,offset, pageSize);
+        List<QuestionDto> dtoList = convertFromInfo(list1);
+
+        return dtoList;
+    }
+
     public List<QuestionDto> findByPage(Integer id, Integer pageNum, Integer pageSize) {
 
         Integer offset = pageSize * (pageNum - 1);

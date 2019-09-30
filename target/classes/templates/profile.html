@@ -34,6 +34,7 @@
                         <span th:text="${question.like_count}"></span>人喜欢·
                         <span th:text="${#dates.format(question.gmt_create,'yyyy-MM-dd')}"></span>
                     </span>
+                    <hr>
                 </div>
             </div>
         </div>
@@ -49,38 +50,44 @@
         </div>
     </div>
 
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            <li>
-                <a aria-label="Previous" th:if="${pageInfo.hasPreviousPage}" th:href="'?pageNo=1'">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-                <span aria-hidden="true" aria-label="Previous" th:if="!${pageInfo.hasPreviousPage}">&laquo;</span>
-            </li>
-            <li th:if="${pageInfo.hasPreviousPage}"><a th:href="'?pageNo='+${pageInfo.prePage}">《</a></li>
-            <li><span th:if="!${pageInfo.hasPreviousPage}">《</span></li>
+    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        <nav  class="col-lg-12 col-md-12 col-sm-12 col-xs-12" aria-label="Page navigation" style="padding-left:600px;">
+            <ul class="pagination">
+                <li>
+                    <a aria-label="Previous" th:if="${pageInfo.hasPreviousPage}" th:href="'?pageNo=1'">
+                        <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
+                    </a>
+                    <span aria-hidden="true" class="glyphicon glyphicon-home" th:if="!${pageInfo.hasPreviousPage}"></span>
+                </li>
+                <li th:if="${pageInfo.hasPreviousPage}">
+                    <a th:href="'?pageNo='+${pageInfo.prePage}">
+                        <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </li>
+                <li><span class="glyphicon glyphicon-chevron-left" th:if="!${pageInfo.hasPreviousPage}"></span></li>
 
-            <li  th:each="nav : ${pageInfo.navigatepageNums}">
-                <a th:href="'?pageNo='+${nav}" th:text="${nav}" th:if="${nav != pageInfo.pageNum}"></a>
-                <span style="font-weight: bold;background-color: #2aabd2" th:if="${nav == pageInfo.pageNum}" th:text="${nav}"></span>
-            </li>
+                <li  th:each="nav : ${pageInfo.navigatepageNums}">
+                    <a th:href="'?pageNo='+${nav}" th:text="${nav}" th:if="${nav != pageInfo.pageNum}"></a>
+                    <span style="font-weight: bold;background-color: #2aabd2" th:if="${nav == pageInfo.pageNum}" th:text="${nav}"></span>
+                </li>
 
-            <li th:if="${pageInfo.hasNextPage}">
-                <a th:href="'?pageNo='+${pageInfo.nextPage}">》</a>
-            </li>
-            <li th:if="!${pageInfo.hasNextPage}">
-                <span>》</span>
-            </li>
-            <li>
-                <a aria-label="Next" th:if="${pageInfo.hasNextPage}" th:href="'?pageNo='+${pageInfo.pages}">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-                <span aria-label="Next" th:if="!${pageInfo.hasNextPage}">
-                    <span aria-hidden="true">&raquo;</span>
+                <li th:if="${pageInfo.hasNextPage}">
+                    <a th:href="'?pageNo='+${pageInfo.nextPage}"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+                </li>
+                <li th:if="!${pageInfo.hasNextPage}">
+                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                </li>
+                <li>
+                    <a aria-label="Next" th:if="${pageInfo.hasNextPage}" th:href="'?pageNo='+${pageInfo.pages}">
+                        <span aria-hidden="true" class="glyphicon glyphicon-flag"></span>
+                    </a>
+                    <span aria-label="Next" th:if="!${pageInfo.hasNextPage}">
+                    <span aria-hidden="true" class="glyphicon glyphicon-flag"></span>
                 </span>
-            </li>
-        </ul>
-    </nav>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
 </body>
 </html>
