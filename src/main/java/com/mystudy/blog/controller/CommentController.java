@@ -10,6 +10,7 @@ import com.mystudy.blog.mapper.CommentMapper;
 import com.mystudy.blog.mapper.QusertionInfoMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeanUtils;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -37,7 +38,7 @@ public class CommentController{
                           HttpServletRequest request){
 
         User user = (User)request.getSession().getAttribute("user");
-        Map<String,String> map = new HashMap<>();
+        Map<String,Object> map = new HashMap<>();
 
         if(user==null){
             map.put("status","fail");
@@ -77,15 +78,43 @@ public class CommentController{
         //打印
         commentMapper.insert(comment);
 
-        QuestionInfo info = qusertionInfoMapper.findById(comment.getQuestion_id());
-        qusertionInfoMapper.updateComment(info);
-
-        //回复评论
         //回复问题
-        map.put("status","success");
-        String url = "http://localhost:8080/question/"+info.getId();
-        map.put("url",url);
-        return map;
+        if("1".equals(type)){
+            QuestionInfo info = qusertionInfoMapper.findById(comment.getQuestion_id());
+            qusertionInfoMapper.updateComment(info);
+
+            map.put("status","success");
+            String url = "http://localhost:8080/question/"+info.getId();
+            map.put("url",url);
+            return map;
+
+        }else if("2".equals(type)){
+
+            Comment c = commentMapper.selectById(comment.getQuestion_id());
+            commentMapper.updateComment(c);
+            //回复评论
+            map.put("status","success");
+            map.put("commentCount",c.getComment_count()+1);
+
+            //二级评论内容
+            CommentDto c2 = new CommentDto();
+            BeanUtils.copyProperties(comment,c2);
+            c2.setFail(user);
+
+            /*System.out.println(c2.getFail().getImg_url());
+            System.out.println(c2.getFail().getName());
+            System.out.println(c2.getContent());*/
+
+            map.put("img",c2.getFail().getImg_url());
+            map.put("name",c2.getFail().getName());
+            map.put("content",c2.getContent());
+
+            return map;
+        }else {
+            map.put("status","fail");
+            map.put("message","评论失败");
+            return map;
+        }
     }
 
     @RequestMapping(value = "/comment/secondLevel",method = {RequestMethod.POST})
@@ -124,15 +153,4 @@ public class CommentController{
         }
         return map;
     }
-
-    /*//回复评论
-    @RequestMapping(value = "/comment/level",method = {RequestMethod.POST})
-    @ResponseBody
-    public Object comment(@RequestParam(name = "comment",defaultValue = "")String comment,
-                          HttpServletRequest request){
-
-        Map<String,Object> map = new HashMap<>();
-
-        return map;
-    }*/
 }

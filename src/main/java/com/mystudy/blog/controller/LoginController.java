@@ -36,7 +36,7 @@ public class LoginController {
 
     @RequestMapping(value = "/hello",method = {RequestMethod.GET})
     public String hello(@RequestParam(value = "pageNo",defaultValue = "1")Integer pageNo,
-                        @RequestParam(value = "pageSize",defaultValue="1")Integer pageSize,
+                        @RequestParam(value = "pageSize",defaultValue="5")Integer pageSize,
                         HttpServletRequest request,
                         Model model){
 
@@ -48,6 +48,12 @@ public class LoginController {
         List<QuestionInfo> infos = qusertionInfoMapper.findAll();
         PageInfo<QuestionInfo> pageInfo = new PageInfo<>(infos,4);
         model.addAttribute("pageInfo",pageInfo);
+
+        List<QuestionInfo> hotQuestion = qusertionInfoMapper.findHostQuestion();
+        model.addAttribute("hotQuestion",hotQuestion);
+
+        System.out.println(hotQuestion.size());
+
         return "index";
     }
 }

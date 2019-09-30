@@ -38,7 +38,7 @@ public class ProfileController {
     @RequestMapping(value = "/profile/{action}",method = RequestMethod.GET)
     public String profile(@PathVariable(value = "action")String action,
                           @RequestParam(value = "pageNo",defaultValue = "1")Integer pageNo,
-                          @RequestParam(value = "pageSize",defaultValue="1")Integer pageSize,
+                          @RequestParam(value = "pageSize",defaultValue="5")Integer pageSize,
                           HttpServletRequest request,
                           Model model){
 

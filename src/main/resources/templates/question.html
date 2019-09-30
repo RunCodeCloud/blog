@@ -14,7 +14,7 @@
 <div th:insert="~{navigate::nav}"></div>
 <div class="container-fluid main profile">
     <div class="row">
-        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" style="margin-top: 22px">
             <h4><span th:text="${question.title}"></span></h4>
             <span class="text-des">
                         作者:<span th:text="${question.user.getName()}"></span> |
@@ -41,25 +41,48 @@
                         <h5 th:text="${comment.content}">
                         </h5>
 
-                        <!--th:href="'/publish/secondLevel'+${question.id}"-->
-                        <a href="#" th:id="'like1'+${comment.id}" class="comment-menu icon iconboss1" status="true" th:var="${comment.id}">
+                        <a href="" th:id="'like1'+${comment.id}" class="comment-menu icon iconboss1" status="true" th:var="${comment.id}">
                             <span  th:id="'icon1'+${comment.id}" class="glyphicon glyphicon-thumbs-up icon1" aria-hidden="true"></span>
                         </a>
-                        <a href="#" th:id="'dislike1'+${comment.id}" class="comment-menu icon iconboss2" status="true" th:var="${comment.id}">
+                        <a href="" th:id="'dislike1'+${comment.id}" class="comment-menu icon iconboss2" status="true" th:var="${comment.id}">
                             <span th:id="'icon2'+${comment.id}"  class="glyphicon glyphicon-thumbs-down icon2" aria-hidden="true"></span>
                         </a>
-                        <a href="#" th:id="'comment'+${comment.id}"  status="true"  th:var="${comment.id}" class="comment-menu icon iconboss3">
+                        <a href="" th:id="'comment'+${comment.id}"  status="true"  th:var="${comment.id}" class="comment-menu icon iconboss3">
                             <span th:id="'icon3'+${comment.id}"   class="glyphicon glyphicon glyphicon-comment icon3" aria-hidden="true"></span>
                         </a>
-                       <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse in">
-                            <div class="well">
-                                hello
-                            </div>
-                        </div>-->
+
+                        <div th:id="'secondLevel'+${comment.id}" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse " style="margin: 2px 0px;padding: 0px;border: 1px #999999 solid; ">
+
+                                <div class="media" style="margin:7px">
+                                    <!--二级回复-->
+                                    <div th:id="'append'+${comment.id}">
+
+                                        <!--当list为null时，节点不存在-->
+                                        <div th:each="secondLevel:${comment.list}">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object img-rounded" th:src="${secondLevel.fail.img_url}">
+                                                </a>
+                                            </div>
+                                            <div class="media-body closed">
+                                                <h6 class="media-heading reply" th:text="${secondLevel.fail.name}"></h6>
+                                                <h5 th:text="${secondLevel.content}">
+                                                </h5>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <input type="hidden"  th:id="'commentator_id'+${comment.id}" th:name="'commentator_id'+${comment.id}" th:value="${comment.commentator}">
+
+                                    <textarea th:id="'textarea'+${comment.id}" style="height: 32px;width: 800px;margin:5px 20px" class="form-control" placeholder="评论一哈......" ></textarea>
+
+                                    <button type="button" style="margin-right: 25px;margin-bottom: 5px;margin-top: 5px" class="btn btn-success btn-publish response" th:id="'response'+${comment.id}" th:var="${comment.id}">评论</button>
+                                </div>
+                        </div>
                         <h5 class="text-des">
                             赞:<span th:id="'like'+${comment.id}" th:text="${comment.like_count}"></span> |
                             踩:<span th:id="'dislike'+${comment.id}"  th:text="${comment.dislike_count}"></span>|
-                            评论:<span th:id="'commentCount'+${comment.id}" th:text="${comment.dislike_count}"></span>|
+                            评论:<span th:id="'commentCount'+${comment.id}" th:text="${comment.comment_count}"></span>|
                             发布时间:<span th:text="${#dates.format(comment.getGmt_create(),'yyyy-MM-dd')}"></span>
                         </h5>
                     </div>
@@ -83,13 +106,13 @@
                 <input type="hidden" id="parent_id" name="parent_id" th:value="${question.user.id}">
                 <input type="hidden" id="question_id" name="question_id" th:value="${question.id}">
                 <input type="hidden" id="type" name="type" th:value="1">
-                <textarea style="height: 160px;width: 880px;margin:0px 25px" name="content" id="content" class="form-control" cols="30" rows="10"></textarea>
+                <textarea style="height: 160px;width: 880px;margin:0px 25px" name="content" id="content" class="form-control"></textarea>
             </div>
             <!-- 回复按钮-->
             <button style="margin-right: 16px" type="submit" class="btn btn-success btn-publish" id="post">回复</button>
         </div>
 
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" style="border-left: 1px black solid">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" style="border-left: 1px #E8E8E8 solid;">
             <div>
                 <h4>发起人</h4>
                 <div class="media">
@@ -104,8 +127,14 @@
                     <hr>
                 </div>
             </div>
+            <div style="margin: 0px;padding: 0px">
+                <h4 style="margin-top: 0px">相关问题</h4>
+                <hr>
+            </div>
             <div>
-                <h4>相关问题</h4>
+                <p th:each="tag:${tag}">
+                    <a  th:href="'/question/'+${tag.id}"  th:text="${tag.title}" style="text-decoration: none"></a>
+                </p>
             </div>
         </div>
     </div>

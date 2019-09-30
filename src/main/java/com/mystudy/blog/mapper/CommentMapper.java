@@ -14,11 +14,14 @@ public interface CommentMapper {
     @Insert("insert into comment values(null,#{parent_id},#{type},#{commentator},#{gmt_create},#{gmt_modefied},#{comment_count},#{dislike_count},#{like_count},#{content},#{question_id})")
     void insert(Comment comment);
 
-    @Select("select * from comment where question_id=#{question_id} and type=1")
+    @Select("select * from comment where question_id=#{question_id} and type=1  order  by gmt_create Desc")
     List<Comment> findCommentByQuestionInfoId(Integer id);
 
-    @Select("select * from comment where question_id=#{question_id} and type=2")
+    @Select("select * from comment where question_id=#{question_id} and type=2  order  by gmt_create Desc")
     List<Comment> findCommentByQuestionInfoIdAndType(Integer id);
+
+    @Update("update comment set comment_count=#{comment_count}+1 where id=#{id}")
+    void updateComment(Comment comment);
 
     @Update("update comment set dislike_count=#{dislike_count}+1 where id=#{id}")
     void updateDislike(Comment comment);
@@ -38,4 +41,7 @@ public interface CommentMapper {
 
     @Select("select * from comment where id=#{id}")
     Comment selectById(Integer id);
+
+    @Select("select * from comment where question_id=#{question_id} and type=2  order  by gmt_create Desc")
+    List<Comment> selectSecondLevel(Integer question_id);
 }

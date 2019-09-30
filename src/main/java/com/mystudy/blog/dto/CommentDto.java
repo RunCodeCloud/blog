@@ -1,6 +1,9 @@
 package com.mystudy.blog.dto;
 
+import com.mystudy.blog.bean.Comment;
 import com.mystudy.blog.bean.User;
+
+import java.util.List;
 
 public class CommentDto {
 
@@ -16,6 +19,16 @@ public class CommentDto {
     private Integer comment_count;
     private User fail;
     private Integer dislike_count;
+
+    private List<CommentDto> list;
+
+    public List<CommentDto> getList() {
+        return list;
+    }
+
+    public void setList(List<CommentDto> list) {
+        this.list = list;
+    }
 
     public Integer getDislike_count() {
         return dislike_count;
@@ -113,15 +126,22 @@ public class CommentDto {
         this.comment_count = comment_count;
     }
 
-
-
     @Override
     public String toString() {
         return "CommentDto{" +
-                "parent_id=" + parent_id +
-                ", content='" + content + '\'' +
+                "id=" + id +
+                ", parent_id=" + parent_id +
                 ", type='" + type + '\'' +
+                ", content='" + content + '\'' +
                 ", question_id=" + question_id +
+                ", commentator=" + commentator +
+                ", gmt_create=" + gmt_create +
+                ", gmt_modefied=" + gmt_modefied +
+                ", like_count=" + like_count +
+                ", comment_count=" + comment_count +
+                ", fail=" + fail +
+                ", dislike_count=" + dislike_count +
+                ", list=" + list +
                 '}';
     }
 }
