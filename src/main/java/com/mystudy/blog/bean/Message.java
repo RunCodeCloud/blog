@@ -3,12 +3,13 @@ package com.mystudy.blog.bean;
 public class Message {
 
     private Integer id;
-    private Integer content;
+    private String content;
     private Integer reply_id;
     private Integer operation;
     private Integer originator_id;
-    private Integer commentator_id;
+    private Long gmt_create;
     private Integer status;
+    private Integer zuile;
 
     public Integer getId() {
         return id;
@@ -18,11 +19,11 @@ public class Message {
         this.id = id;
     }
 
-    public Integer getContent() {
+    public String getContent() {
         return content;
     }
 
-    public void setContent(Integer content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
@@ -50,12 +51,12 @@ public class Message {
         this.originator_id = originator_id;
     }
 
-    public Integer getCommentator_id() {
-        return commentator_id;
+    public Long getGmt_create() {
+        return gmt_create;
     }
 
-    public void setCommentator_id(Integer commentator_id) {
-        this.commentator_id = commentator_id;
+    public void setGmt_create(Long gmt_create) {
+        this.gmt_create = gmt_create;
     }
 
     public Integer getStatus() {
@@ -66,17 +67,25 @@ public class Message {
         this.status = status;
     }
 
+    public Integer getZuile() {
+        return zuile;
+    }
+
+    public void setZuile(Integer zuile) {
+        this.zuile = zuile;
+    }
+
     @Override
     public String toString() {
         return "Message{" +
                 "id=" + id +
-                ", content=" + content +
+                ", content='" + content + '\'' +
                 ", reply_id=" + reply_id +
                 ", operation=" + operation +
                 ", originator_id=" + originator_id +
-                ", commentator_id=" + commentator_id +
+                ", gmt_create=" + gmt_create +
                 ", status=" + status +
+                ", zuile=" + zuile +
                 '}';
     }
-
 }

@@ -17,25 +17,44 @@
             <h2><span th:text="${secionName}"></span></h2>
             <hr>
 
-            <div class="media" th:each="question:${questions}">
-                <div class="media-left">
-                    <a href="#">
-                        <img class="media-object img-rounded" th:src="${question.user.img_url}">
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading">
-                        <a style="text-decoration: none" th:href="'/question/'+${question.id}" th:text="${question.title}"></a>
-                    </h4>
-                    <span th:text="${question.description}"></span><br>
-                    <span class="text-des">
+            <div th:if="${section=='question'}">
+                <div class="media" th:each="question:${questions}">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-rounded" th:src="${question.user.img_url}">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <a style="text-decoration: none" th:href="'/question/'+${question.id}" th:text="${question.title}"></a>
+                        </h4>
+                        <span th:text="${question.description}"></span><br>
+                        <span class="text-des">
                         <span th:text="${question.comment_count}"></span>个回复·
                         <span th:text="${question.view_count}"></span>次浏览·
                         <span th:text="${question.like_count}"></span>人喜欢·
                         <span th:text="${#dates.format(question.gmt_create,'yyyy-MM-dd')}"></span>
                     </span>
-                    <hr>
+                        <hr>
+                    </div>
                 </div>
+            </div>
+
+            <div th:if="${section=='replies'}">
+                <!--  需要一个ajax请求   用来改变导航栏上的通知数  question/问题id  跳转到被人回答问题的页面-->
+                <!-- message什么时候产生  评论回复问题时产生  评论回复评论时产生--->
+                <!--只要是跟自己发布问题有关的信息，都会有message产生-->
+
+                <!--评论问题   加一个评论按钮，点击就在评论内容前加上@在评论内容-->
+
+                <p th:each="m:${message}">
+                    <span th:text="${m.commentator_name}"></span>
+                    <span> 回复了</span>
+                    <span th:if="${m.operation==1}" th:text="问题"></span>
+                    <span th:if="${m.operation==2}" th:text="评论"></span>
+                    <a href="#" style="text-decoration: none" th:text="${m.content}"></a>
+                    <span th:if="${m.status==0}" style="background-color: red;color: white;">未读</span>
+                </p>
             </div>
         </div>
 
@@ -43,50 +62,93 @@
             <div class="list-group section">
                 <a href="/profile/question" th:class="${section=='question'}?'list-group-item active':'list-group-item'">
                     我的问题
-                    <span class="badge">14</span>
                 </a>
-                <a href="/profile/replies"  th:class="${section=='replies'}?'list-group-item active':'list-group-item'">最新回复</a>
+                <a href="/profile/replies"  th:class="${section=='replies'}?'list-group-item active':'list-group-item'">
+                    最新回复
+                    <span th:if="${news!=0}" th:text="${news}" class="badge"></span>
+                </a>
             </div>
         </div>
     </div>
 
     <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-        <nav  class="col-lg-12 col-md-12 col-sm-12 col-xs-12" aria-label="Page navigation" style="padding-left:600px;">
-            <ul class="pagination">
-                <li>
-                    <a aria-label="Previous" th:if="${pageInfo.hasPreviousPage}" th:href="'?pageNo=1'">
-                        <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
-                    </a>
-                    <span aria-hidden="true" class="glyphicon glyphicon-home" th:if="!${pageInfo.hasPreviousPage}"></span>
-                </li>
-                <li th:if="${pageInfo.hasPreviousPage}">
-                    <a th:href="'?pageNo='+${pageInfo.prePage}">
-                        <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                </li>
-                <li><span class="glyphicon glyphicon-chevron-left" th:if="!${pageInfo.hasPreviousPage}"></span></li>
+        <div th:if="${section=='question'}">
+            <nav  class="col-lg-12 col-md-12 col-sm-12 col-xs-12" aria-label="Page navigation" style="padding-left:600px;">
+                <ul class="pagination">
+                    <li>
+                        <a aria-label="Previous" th:if="${pageInfo.hasPreviousPage}" th:href="'?pageNo=1'">
+                            <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
+                        </a>
+                        <span aria-hidden="true" class="glyphicon glyphicon-home" th:if="!${pageInfo.hasPreviousPage}"></span>
+                    </li>
+                    <li th:if="${pageInfo.hasPreviousPage}">
+                        <a th:href="'?pageNo='+${pageInfo.prePage}">
+                            <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </li>
+                    <li><span class="glyphicon glyphicon-chevron-left" th:if="!${pageInfo.hasPreviousPage}"></span></li>
 
-                <li  th:each="nav : ${pageInfo.navigatepageNums}">
-                    <a th:href="'?pageNo='+${nav}" th:text="${nav}" th:if="${nav != pageInfo.pageNum}"></a>
-                    <span style="font-weight: bold;background-color: #2aabd2" th:if="${nav == pageInfo.pageNum}" th:text="${nav}"></span>
-                </li>
+                    <li  th:each="nav : ${pageInfo.navigatepageNums}">
+                        <a th:href="'?pageNo='+${nav}" th:text="${nav}" th:if="${nav != pageInfo.pageNum}"></a>
+                        <span style="font-weight: bold;background-color: #2aabd2" th:if="${nav == pageInfo.pageNum}" th:text="${nav}"></span>
+                    </li>
 
-                <li th:if="${pageInfo.hasNextPage}">
-                    <a th:href="'?pageNo='+${pageInfo.nextPage}"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
-                </li>
-                <li th:if="!${pageInfo.hasNextPage}">
-                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
-                </li>
-                <li>
-                    <a aria-label="Next" th:if="${pageInfo.hasNextPage}" th:href="'?pageNo='+${pageInfo.pages}">
-                        <span aria-hidden="true" class="glyphicon glyphicon-flag"></span>
-                    </a>
-                    <span aria-label="Next" th:if="!${pageInfo.hasNextPage}">
+                    <li th:if="${pageInfo.hasNextPage}">
+                        <a th:href="'?pageNo='+${pageInfo.nextPage}"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+                    </li>
+                    <li th:if="!${pageInfo.hasNextPage}">
+                        <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                    </li>
+                    <li>
+                        <a aria-label="Next" th:if="${pageInfo.hasNextPage}" th:href="'?pageNo='+${pageInfo.pages}">
+                            <span aria-hidden="true" class="glyphicon glyphicon-flag"></span>
+                        </a>
+                        <span aria-label="Next" th:if="!${pageInfo.hasNextPage}">
                     <span aria-hidden="true" class="glyphicon glyphicon-flag"></span>
                 </span>
-                </li>
-            </ul>
-        </nav>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div th:if="${section=='replies'}">
+            <nav  class="col-lg-12 col-md-12 col-sm-12 col-xs-12" aria-label="Page navigation" style="padding-left:600px;">
+                <ul class="pagination">
+                    <li>
+                        <a aria-label="Previous" th:if="${pageInfo.hasPreviousPage}" th:href="'?pageNo=1'">
+                            <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
+                        </a>
+                        <span aria-hidden="true" class="glyphicon glyphicon-home" th:if="!${pageInfo.hasPreviousPage}"></span>
+                    </li>
+                    <li th:if="${pageInfo.hasPreviousPage}">
+                        <a th:href="'?pageNo='+${pageInfo.prePage}">
+                            <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </li>
+                    <li><span class="glyphicon glyphicon-chevron-left" th:if="!${pageInfo.hasPreviousPage}"></span></li>
+
+                    <li  th:each="nav : ${pageInfo.navigatepageNums}">
+                        <a th:href="'?pageNo='+${nav}" th:text="${nav}" th:if="${nav != pageInfo.pageNum}"></a>
+                        <span style="font-weight: bold;background-color: #2aabd2" th:if="${nav == pageInfo.pageNum}" th:text="${nav}"></span>
+                    </li>
+
+                    <li th:if="${pageInfo.hasNextPage}">
+                        <a th:href="'?pageNo='+${pageInfo.nextPage}"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+                    </li>
+                    <li th:if="!${pageInfo.hasNextPage}">
+                        <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                    </li>
+                    <li>
+                        <a aria-label="Next" th:if="${pageInfo.hasNextPage}" th:href="'?pageNo='+${pageInfo.pages}">
+                            <span aria-hidden="true" class="glyphicon glyphicon-flag"></span>
+                        </a>
+                        <span aria-label="Next" th:if="!${pageInfo.hasNextPage}">
+                    <span aria-hidden="true" class="glyphicon glyphicon-flag"></span>
+                </span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
 </div>
 </body>

@@ -3,7 +3,7 @@ package com.mystudy.blog.dto;
 public class MessageDto {
 
     private Integer id;
-    private Integer content;
+    private String content;
     private Integer reply_id;
     private Integer operation;
     private Integer originator_id;
@@ -22,11 +22,11 @@ public class MessageDto {
         this.id = id;
     }
 
-    public Integer getContent() {
+    public String getContent() {
         return content;
     }
 
-    public void setContent(Integer content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
@@ -94,19 +94,4 @@ public class MessageDto {
         this.commentator_name = commentator_name;
     }
 
-    @Override
-    public String toString() {
-        return "MessageDto{" +
-                "id=" + id +
-                ", content=" + content +
-                ", reply_id=" + reply_id +
-                ", operation=" + operation +
-                ", originator_id=" + originator_id +
-                ", commentator_id=" + commentator_id +
-                ", status=" + status +
-                ", reply_content='" + reply_content + '\'' +
-                ", originator_name='" + originator_name + '\'' +
-                ", commentator_name='" + commentator_name + '\'' +
-                '}';
-    }
 }

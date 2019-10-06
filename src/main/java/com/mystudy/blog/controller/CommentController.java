@@ -1,12 +1,14 @@
 package com.mystudy.blog.controller;
 
 import com.mystudy.blog.bean.Comment;
+import com.mystudy.blog.bean.Message;
 import com.mystudy.blog.bean.QuestionInfo;
 import com.mystudy.blog.bean.User;
 import com.mystudy.blog.dto.CommentDto;
 import com.mystudy.blog.exception.ErrorEnum;
 import com.mystudy.blog.exception.MyException;
 import com.mystudy.blog.mapper.CommentMapper;
+import com.mystudy.blog.mapper.MessageMapper;
 import com.mystudy.blog.mapper.QusertionInfoMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeanUtils;
@@ -30,7 +32,9 @@ public class CommentController{
     @Resource
     CommentMapper commentMapper;
 
-    //一级评论
+    @Resource
+    MessageMapper messageMapper;
+
     @RequestMapping(value = "/comment",method = {RequestMethod.POST})
     @ResponseBody
     @Transactional
@@ -75,8 +79,16 @@ public class CommentController{
         comment.setLike_count(0);
         comment.setDislike_count(0);
         comment.setComment_count(0);
-        //打印
+
         commentMapper.insert(comment);
+
+
+        //message信息
+        Message message = new Message();
+        message.setContent(comment.getContent());
+        message.setZuile(user.getId());
+        message.setGmt_create(System.currentTimeMillis());
+        message.setStatus(0);
 
         //回复问题
         if("1".equals(type)){
@@ -86,6 +98,14 @@ public class CommentController{
             map.put("status","success");
             String url = "http://localhost:8080/question/"+info.getId();
             map.put("url",url);
+
+            //message
+            message.setOperation(1);
+            message.setReply_id(info.getId());
+            message.setOriginator_id(info.getCreator());
+
+            messageMapper.insert(message);
+
             return map;
 
         }else if("2".equals(type)){
@@ -101,13 +121,17 @@ public class CommentController{
             BeanUtils.copyProperties(comment,c2);
             c2.setFail(user);
 
-            /*System.out.println(c2.getFail().getImg_url());
-            System.out.println(c2.getFail().getName());
-            System.out.println(c2.getContent());*/
-
             map.put("img",c2.getFail().getImg_url());
             map.put("name",c2.getFail().getName());
             map.put("content",c2.getContent());
+
+            //message
+            //回复评论
+            message.setOperation(2);
+            message.setReply_id(c.getId());
+            message.setOriginator_id(c.getCommentator());
+
+            messageMapper.insert(message);
 
             return map;
         }else {
@@ -125,7 +149,6 @@ public class CommentController{
                           HttpServletRequest request){
 
         Map<String,Object> map = new HashMap<>();
-
         Comment comment = commentMapper.selectById(id);
 
         if(like!=null&&like!=0){
@@ -137,6 +160,7 @@ public class CommentController{
             Integer newLike = commentMapper.selectLike(id);
             map.put("status","success");
             map.put("like",newLike);
+
         }else if(dislike!=null&&dislike!=0){
             if(dislike>0){
                 commentMapper.updateDislike(comment);
@@ -151,6 +175,7 @@ public class CommentController{
             map.put("message","操作失败");
             return map;
         }
+
         return map;
     }
 }
