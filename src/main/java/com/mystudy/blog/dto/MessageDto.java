@@ -10,9 +10,19 @@ public class MessageDto {
     private Integer commentator_id;
     private Integer status;
 
-    private  String reply_content;
+    private String reply_content;
     private String originator_name;
     private String commentator_name;
+
+    private Integer question_id;
+
+    public Integer getQuestion_id() {
+        return question_id;
+    }
+
+    public void setQuestion_id(Integer question_id) {
+        this.question_id = question_id;
+    }
 
     public Integer getId() {
         return id;

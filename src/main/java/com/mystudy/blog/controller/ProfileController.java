@@ -87,6 +87,8 @@ public class ProfileController {
 
             model.addAttribute("message",dtoList);
 
+
+
             //查询所有status为0的
             int news = messageMapper.findStatus().size();
             model.addAttribute("news",news);
@@ -111,16 +113,16 @@ public class ProfileController {
         for(Message message:list){
 
             MessageDto messageDto = new MessageDto();
-
-            System.out.println(message.getZuile());
-
             String commentatorName =  userMapper.findById(message.getZuile()).getName();
             String title;
+            Integer question_id;
 
             if (message.getOperation()==1){
                 title = qusertionInfoMapper.findById(message.getReply_id()).getTitle();
+                question_id = message.getReply_id();
             }else {
                 title = commentMapper.selectById(message.getReply_id()).getContent();
+                question_id = commentMapper.selectById(message.getReply_id()).getQuestion_id();
             }
 
 
@@ -128,6 +130,7 @@ public class ProfileController {
 
             messageDto.setReply_content(title);
             messageDto.setCommentator_name(commentatorName);
+            messageDto.setQuestion_id(question_id);
 
             l.add(messageDto);
         }

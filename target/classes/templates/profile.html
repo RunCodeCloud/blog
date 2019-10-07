@@ -47,13 +47,13 @@
 
                 <!--评论问题   加一个评论按钮，点击就在评论内容前加上@在评论内容-->
 
-                <p th:each="m:${message}">
+                <p th:each="m:${message}" style="margin-top: 40px">
                     <span th:text="${m.commentator_name}"></span>
                     <span> 回复了</span>
                     <span th:if="${m.operation==1}" th:text="问题"></span>
                     <span th:if="${m.operation==2}" th:text="评论"></span>
-                    <a href="#" style="text-decoration: none" th:text="${m.content}"></a>
-                    <span th:if="${m.status==0}" style="background-color: red;color: white;">未读</span>
+                    <a th:href="'http://localhost:8080/question/'+${m.question_id}+'?message='+${m.id}" style="text-decoration: none" th:text="${m.content}"></a>
+                    <span th:if="${m.status==0}" style="background-color: #B80000;color: white;">未读</span>
                 </p>
             </div>
         </div>

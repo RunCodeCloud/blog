@@ -1,11 +1,13 @@
 package com.mystudy.blog.controller;
 
 import com.mystudy.blog.bean.Comment;
+import com.mystudy.blog.bean.Message;
 import com.mystudy.blog.bean.QuestionInfo;
 import com.mystudy.blog.bean.User;
 import com.mystudy.blog.dto.CommentDto;
 import com.mystudy.blog.dto.QuestionDto;
 import com.mystudy.blog.mapper.CommentMapper;
+import com.mystudy.blog.mapper.MessageMapper;
 import com.mystudy.blog.mapper.QusertionInfoMapper;
 import com.mystudy.blog.mapper.UserMapper;
 import com.mystudy.blog.service.QuestionDtoService;
@@ -34,11 +36,14 @@ public class QuestionController {
     QusertionInfoMapper qusertionInfoMapper;
     @Resource
     CommentMapper commentMapper;
+    @Resource
+    MessageMapper messageMapper;
 
     @RequestMapping(value = "/question/{id}",method = RequestMethod.GET)
     public String question(@PathVariable(name = "id")Integer id,
                            Model model,
-                           HttpServletRequest request){
+                           HttpServletRequest request,
+                           @RequestParam(name = "message",defaultValue = "-1")Integer message){
 
         User user = (User) request.getSession().getAttribute("user");
         if(user==null){
@@ -68,6 +73,12 @@ public class QuestionController {
 
         model.addAttribute("tag",tag);
         model.addAttribute("comments",list);
+
+        //更改message的status
+        if(message!=-1){
+           messageMapper.updateStatus(1,message);
+        }
+
         return "question";
     }
 

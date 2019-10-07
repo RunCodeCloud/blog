@@ -22,17 +22,12 @@ public interface MessageMapper {
     Message selectByReplyId(Integer originator_id,Integer operation);
 
     @Update("update message set status=#{status} where id=#{id}")
-    void updateStatus(Message message);
+    void updateStatus(Integer status,Integer id);
 
-    @Update("update message set status=#{status} where id=#{id}")
-    void updateOperation(Message message);
 
     @Select(value = "select * from message where originator_id=#{userId} order  by gmt_create Desc limit #{offset},#{pageSize}")
     List<Message> findByUserIdAndLimit(Integer userId, Integer offset, Integer pageSize);
 
     @Select(value = "select * from message where status=0")
     List<Message> findStatus();
-
-    @Select("select * from message")
-    List<Message> findAll();
 }
