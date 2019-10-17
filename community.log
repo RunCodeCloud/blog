@@ -1286,3 +1286,26 @@
 2019-10-17 21:02:16.301  INFO 10720 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
 2019-10-17 21:02:16.355  INFO 10720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
 2019-10-17 21:02:16.359  INFO 10720 --- [restartedMain] com.mystudy.blog.BlogApplication         : Started BlogApplication in 3.559 seconds (JVM running for 5.095)
+2019-10-17 21:02:52.294  INFO 10720 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-17 21:02:52.294  INFO 10720 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-17 21:02:52.301  INFO 10720 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-10-17 21:02:52.366  INFO 10720 --- [http-nio-80-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-10-17 21:07:25.120  INFO 10720 --- [Thread-11] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-17 21:07:25.124  INFO 10720 --- [Thread-11] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-10-17 21:07:25.591  INFO 10720 --- [restartedMain] com.mystudy.blog.BlogApplication         : Starting BlogApplication on PC-20190623ACFO with PID 10720 (C:\Users\Administrator\IdeaProjects\blog\target\classes started by Administrator in C:\Users\Administrator\IdeaProjects\blog)
+2019-10-17 21:07:25.592  INFO 10720 --- [restartedMain] com.mystudy.blog.BlogApplication         : No active profile set, falling back to default profiles: default
+2019-10-17 21:07:26.125  INFO 10720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-10-17 21:07:26.126  INFO 10720 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-17 21:07:26.126  INFO 10720 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-10-17 21:07:26.150  INFO 10720 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-17 21:07:26.150  INFO 10720 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 555 ms
+2019-10-17 21:07:26.352  INFO 10720 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-17 21:07:26.379  INFO 10720 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-10-17 21:07:26.465  INFO 10720 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-17 21:07:26.490  INFO 10720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-10-17 21:07:26.491  INFO 10720 --- [restartedMain] com.mystudy.blog.BlogApplication         : Started BlogApplication in 0.935 seconds (JVM running for 315.222)
+2019-10-17 21:07:26.494  INFO 10720 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-10-17 21:08:03.256  INFO 10720 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-17 21:08:03.260  INFO 10720 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-17 21:08:03.268  INFO 10720 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-10-17 21:08:03.274  INFO 10720 --- [http-nio-80-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
