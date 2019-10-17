@@ -54,8 +54,17 @@ public class LoginController {
 
         PageHelper.startPage(pageNo,pageSize);
         List<QuestionInfo> infos = qusertionInfoMapper.findAll();
+
+        System.out.println(infos+"0000");
+
+        if(infos==null){
+            System.out.println("hello");
+        }
+
         PageInfo<QuestionInfo> pageInfo = new PageInfo<>(infos,4);
         model.addAttribute("pageInfo",pageInfo);
+
+        System.out.println("111"+pageInfo);
 
         List<QuestionInfo> hotQuestion = qusertionInfoMapper.findHostQuestion();
         model.addAttribute("hotQuestion",hotQuestion);
