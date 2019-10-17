@@ -8,7 +8,7 @@ $(function () {
         if(status=="true"){
             $.ajax({
                 type:"POST",
-                url:"http://localhost:8080/comment/secondLevel",
+                url:"http://localhost:80/comment/secondLevel",
                 data:{
                     "commentId":commentId,
                     "like":1
@@ -45,7 +45,7 @@ $(function () {
         }else {
             $.ajax({
                 type:"POST",
-                url:"http://localhost:8080/comment/secondLevel",
+                url:"http://localhost:80/comment/secondLevel",
                 data:{
                     "commentId":commentId,
                     "like":-1
@@ -88,7 +88,7 @@ $(function () {
         if(status=="true"){
             $.ajax({
                 type:"POST",
-                url:"http://localhost:8080/comment/secondLevel",
+                url:"http://localhost:80/comment/secondLevel",
                 data:{
                     "commentId":commentId,
                     "dislike":1
@@ -122,7 +122,7 @@ $(function () {
         }else {
             $.ajax({
                 type:"POST",
-                url:"http://localhost:8080/comment/secondLevel",
+                url:"http://localhost:80/comment/secondLevel",
                 data:{
                     "commentId":commentId,
                     "dislike":-1
@@ -194,7 +194,7 @@ $(function () {
        var content = $("#content").val();
         $.ajax({
             type:"POST",
-            url:"http://localhost:8080/comment",
+            url:"http://localhost:80/comment",
             data:{
                 "parent_id":parent_id,
                 "question_id":question_id,
@@ -209,7 +209,7 @@ $(function () {
                     if(data.status=="fail"&&data.message=="用户未登录"){
                         var isAccepted = confirm(data.message);
                         if(isAccepted){
-                            window.open("https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri=http://localhost:8080/callback&scope=user&state=1 ");
+                            window.open("https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri=http://localhost:80/callback&scope=user&state=1 ");
                             window.localStorage.setItem("close","true");
                        }
                     }else {
@@ -246,7 +246,7 @@ $(function () {
 
         $.ajax({
             type:"POST",
-            url:"http://localhost:8080/comment",
+            url:"http://localhost:80/comment",
             data:{
                 "parent_id":commentator,
                 "question_id":commentId,
@@ -289,7 +289,7 @@ $(function () {
                     if(data.status=="fail"&&data.message=="用户未登录"){
                         var isAccepted = confirm(data.message);
                         if(isAccepted){
-                            window.open("https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri=http://localhost:8080/callback&scope=user&state=1 ");
+                            window.open("https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri=http://localhost:80/callback&scope=user&state=1 ");
                             window.localStorage.setItem("close","true");
                         }
                     }else {

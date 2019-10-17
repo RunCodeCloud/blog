@@ -41,8 +41,6 @@ public class LoginController {
                         HttpServletRequest request,
                         Model model){
 
-
-
         //条件查询，查询问题title关键字    req
         if("false".equals(req)||req==null){
             //显示第几页内容  一页几条数据
@@ -62,6 +60,13 @@ public class LoginController {
         List<QuestionInfo> hotQuestion = qusertionInfoMapper.findHostQuestion();
         model.addAttribute("hotQuestion",hotQuestion);
 
-        return "index";
+
+        String login = (String) request.getSession().getAttribute("login");
+        if("false".equals(login)){
+            model.addAttribute("login","请登录后浏览");
+            return "index";
+        }else {
+            return "index";
+        }
     }
 }

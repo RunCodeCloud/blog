@@ -94,11 +94,11 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 media" style="margin: 0px 16px;padding: 0px;">
                 <div class="media-left">
                     <a href="#">
-                        <img class="media-object img-rounded" th:src="${question.user.img_url}">
+                        <img class="media-object img-rounded" th:src="${session.user.img_url}">
                     </a>
                 </div>
                 <div class="media-body">
-                    <h5 class="media-heading" style="color: #999999;font-size: 12px" th:text="${question.user.getName()}"></h5>
+                    <h5 class="media-heading" style="color: #999999;font-size: 12px" th:text="${session.user.getName()}"></h5>
                 </div>
             </div>
             <!--隐藏域-->

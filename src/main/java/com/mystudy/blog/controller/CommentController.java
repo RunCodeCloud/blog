@@ -96,7 +96,7 @@ public class CommentController{
             qusertionInfoMapper.updateComment(info);
 
             map.put("status","success");
-            String url = "http://localhost:8080/question/"+info.getId();
+            String url = "http://localhost:80/question/"+info.getId();
             map.put("url",url);
 
             //message
