@@ -52,10 +52,14 @@ public class LoginController {
             model.addAttribute("questions",list);
         }
 
-        Page<QuestionDto> page =  PageHelper.startPage(pageNo,pageSize);
+        PageHelper.startPage(pageNo,pageSize);
         List<QuestionInfo> infos = qusertionInfoMapper.findAll();
         PageInfo<QuestionInfo> pageInfo = new PageInfo<>(infos,4);
         model.addAttribute("pageInfo",pageInfo);
+
+        if(pageInfo.getSize()==0){
+            System.out.println("hello");
+        }
 
         List<QuestionInfo> hotQuestion = qusertionInfoMapper.findHostQuestion();
         model.addAttribute("hotQuestion",hotQuestion);

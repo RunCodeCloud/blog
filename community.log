@@ -983,3 +983,306 @@
 2019-10-17 15:18:09.386 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
 2019-10-17 15:18:09.386 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: 90270568-4e46-43ba-8db9-2ee350445b4a(String)
 2019-10-17 15:18:09.386 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:22:06.619  INFO 5132 --- [Thread-13] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-17 18:22:06.644  INFO 5132 --- [Thread-13] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-10-17 18:22:07.596  INFO 5132 --- [restartedMain] com.mystudy.blog.BlogApplication         : Starting BlogApplication on PC-20190623ACFO with PID 5132 (C:\Users\Administrator\IdeaProjects\blog\target\classes started by Administrator in C:\Users\Administrator\IdeaProjects\blog)
+2019-10-17 18:22:07.597  INFO 5132 --- [restartedMain] com.mystudy.blog.BlogApplication         : No active profile set, falling back to default profiles: default
+2019-10-17 18:22:08.269  INFO 5132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-10-17 18:22:08.274  INFO 5132 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-17 18:22:08.274  INFO 5132 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-10-17 18:22:08.309  INFO 5132 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-17 18:22:08.309  INFO 5132 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 709 ms
+2019-10-17 18:22:08.529  INFO 5132 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-17 18:22:08.556  INFO 5132 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-10-17 18:22:08.660  INFO 5132 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-17 18:22:08.686  INFO 5132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-10-17 18:22:08.687  INFO 5132 --- [restartedMain] com.mystudy.blog.BlogApplication         : Started BlogApplication in 1.18 seconds (JVM running for 11135.528)
+2019-10-17 18:22:08.689  INFO 5132 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-10-17 18:42:48.742  INFO 5132 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-17 18:42:48.746  INFO 5132 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-17 18:42:48.755  INFO 5132 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-10-17 18:42:48.760  INFO 5132 --- [http-nio-80-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2019-10-17 18:42:48.817 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:48.818 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:48.822 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:48.826 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.QusertionInfoMapper.findByPage   : ==>  Preparing: select * from question_info order by gmt_create Desc limit ?,? 
+2019-10-17 18:42:48.827 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.QusertionInfoMapper.findByPage   : ==> Parameters: 0(Integer), 5(Integer)
+2019-10-17 18:42:48.866 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.QusertionInfoMapper.findByPage   : <==      Total: 5
+2019-10-17 18:42:48.867 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:48.868 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:48.869 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:48.882 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:48.883 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 15(Integer)
+2019-10-17 18:42:48.884 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:48.884 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:48.884 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:48.885 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:48.886 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:48.887 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:48.888 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:48.888 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:48.888 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 11(Integer)
+2019-10-17 18:42:48.889 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:48.892 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.Q.findAll_COUNT                  : ==>  Preparing: SELECT count(0) FROM question_info 
+2019-10-17 18:42:48.892 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.Q.findAll_COUNT                  : ==> Parameters: 
+2019-10-17 18:42:48.897 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.Q.findAll_COUNT                  : <==      Total: 1
+2019-10-17 18:42:48.897 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.QusertionInfoMapper.findAll      : ==>  Preparing: select * from question_info order by gmt_create Desc LIMIT ? 
+2019-10-17 18:42:48.897 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.QusertionInfoMapper.findAll      : ==> Parameters: 5(Integer)
+2019-10-17 18:42:48.899 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.QusertionInfoMapper.findAll      : <==      Total: 5
+2019-10-17 18:42:48.900 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.Q.findHostQuestion               : ==>  Preparing: select * from question_info order by comment_count Desc limit 0,5 
+2019-10-17 18:42:48.900 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.Q.findHostQuestion               : ==> Parameters: 
+2019-10-17 18:42:48.902 DEBUG 5132 --- [http-nio-80-exec-1] c.m.b.m.Q.findHostQuestion               : <==      Total: 5
+2019-10-17 18:42:48.954 DEBUG 5132 --- [http-nio-80-exec-2] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:48.955 DEBUG 5132 --- [http-nio-80-exec-2] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:48.955 DEBUG 5132 --- [http-nio-80-exec-2] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:48.969 DEBUG 5132 --- [http-nio-80-exec-2] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:48.970 DEBUG 5132 --- [http-nio-80-exec-2] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:48.970 DEBUG 5132 --- [http-nio-80-exec-2] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:48.978 DEBUG 5132 --- [http-nio-80-exec-2] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:48.979 DEBUG 5132 --- [http-nio-80-exec-2] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:48.979 DEBUG 5132 --- [http-nio-80-exec-2] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:48.981 DEBUG 5132 --- [http-nio-80-exec-3] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:48.981 DEBUG 5132 --- [http-nio-80-exec-3] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:48.982 DEBUG 5132 --- [http-nio-80-exec-3] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:48.983 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:48.983 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:48.984 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:49.084 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:49.085 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:49.086 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:51.901 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:51.902 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:51.902 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:51.904 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.QusertionInfoMapper.findById     : ==>  Preparing: select * from question_info where id=? 
+2019-10-17 18:42:51.904 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.QusertionInfoMapper.findById     : ==> Parameters: 29(Integer)
+2019-10-17 18:42:51.908 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.QusertionInfoMapper.findById     : <==      Total: 1
+2019-10-17 18:42:51.908 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:51.908 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 15(Integer)
+2019-10-17 18:42:51.909 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:51.910 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.QusertionInfoMapper.updateView   : ==>  Preparing: update question_info set view_count = ?+1 where id=? 
+2019-10-17 18:42:51.910 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.QusertionInfoMapper.updateView   : ==> Parameters: 21(Integer), 29(Integer)
+2019-10-17 18:42:51.933 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.QusertionInfoMapper.updateView   : <==    Updates: 1
+2019-10-17 18:42:51.933 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.C.findCommentByQuestionInfoId    : ==>  Preparing: select * from comment where question_id=? and type=1 order by gmt_create Desc 
+2019-10-17 18:42:51.933 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.C.findCommentByQuestionInfoId    : ==> Parameters: 29(Integer)
+2019-10-17 18:42:51.937 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.C.findCommentByQuestionInfoId    : <==      Total: 1
+2019-10-17 18:42:51.937 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:51.937 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:51.938 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:51.942 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.CommentMapper.selectSecondLevel  : ==>  Preparing: select * from comment where question_id=? and type=2 order by gmt_create Desc 
+2019-10-17 18:42:51.942 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.CommentMapper.selectSecondLevel  : ==> Parameters: 130(Integer)
+2019-10-17 18:42:51.943 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.CommentMapper.selectSecondLevel  : <==      Total: 2
+2019-10-17 18:42:51.944 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:51.944 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:51.945 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:51.945 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:51.945 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 15(Integer)
+2019-10-17 18:42:51.946 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:51.946 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.QusertionInfoMapper.findByTag    : ==>  Preparing: select * from question_info where tag=? and id!=? order by gmt_create Desc 
+2019-10-17 18:42:51.946 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.QusertionInfoMapper.findByTag    : ==> Parameters: 美女(String), 29(Integer)
+2019-10-17 18:42:51.947 DEBUG 5132 --- [http-nio-80-exec-9] c.m.b.m.QusertionInfoMapper.findByTag    : <==      Total: 0
+2019-10-17 18:42:51.993 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:51.995 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:51.995 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:51.996 DEBUG 5132 --- [http-nio-80-exec-10] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:51.996 DEBUG 5132 --- [http-nio-80-exec-10] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:51.996 DEBUG 5132 --- [http-nio-80-exec-10] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:51.999 DEBUG 5132 --- [http-nio-80-exec-5] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:51.999 DEBUG 5132 --- [http-nio-80-exec-5] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:52.003 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:52.003 DEBUG 5132 --- [http-nio-80-exec-5] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:52.003 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:52.006 DEBUG 5132 --- [http-nio-80-exec-5] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:52.007 DEBUG 5132 --- [http-nio-80-exec-5] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:52.008 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:52.010 DEBUG 5132 --- [http-nio-80-exec-5] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:52.018 DEBUG 5132 --- [http-nio-80-exec-6] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:52.018 DEBUG 5132 --- [http-nio-80-exec-6] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:52.019 DEBUG 5132 --- [http-nio-80-exec-6] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:56.672 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:56.673 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:56.674 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:56.675 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.QusertionInfoMapper.findById     : ==>  Preparing: select * from question_info where id=? 
+2019-10-17 18:42:56.675 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.QusertionInfoMapper.findById     : ==> Parameters: 28(Integer)
+2019-10-17 18:42:56.676 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.QusertionInfoMapper.findById     : <==      Total: 1
+2019-10-17 18:42:56.677 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.677 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.678 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.679 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.QusertionInfoMapper.updateView   : ==>  Preparing: update question_info set view_count = ?+1 where id=? 
+2019-10-17 18:42:56.679 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.QusertionInfoMapper.updateView   : ==> Parameters: 55(Integer), 28(Integer)
+2019-10-17 18:42:56.682 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.QusertionInfoMapper.updateView   : <==    Updates: 1
+2019-10-17 18:42:56.683 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.C.findCommentByQuestionInfoId    : ==>  Preparing: select * from comment where question_id=? and type=1 order by gmt_create Desc 
+2019-10-17 18:42:56.683 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.C.findCommentByQuestionInfoId    : ==> Parameters: 28(Integer)
+2019-10-17 18:42:56.684 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.C.findCommentByQuestionInfoId    : <==      Total: 6
+2019-10-17 18:42:56.685 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.685 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 15(Integer)
+2019-10-17 18:42:56.686 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.686 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==>  Preparing: select * from comment where question_id=? and type=2 order by gmt_create Desc 
+2019-10-17 18:42:56.687 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==> Parameters: 132(Integer)
+2019-10-17 18:42:56.687 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : <==      Total: 0
+2019-10-17 18:42:56.688 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.688 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.688 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.689 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==>  Preparing: select * from comment where question_id=? and type=2 order by gmt_create Desc 
+2019-10-17 18:42:56.689 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==> Parameters: 126(Integer)
+2019-10-17 18:42:56.690 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : <==      Total: 2
+2019-10-17 18:42:56.690 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.690 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.691 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.691 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.691 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.691 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.692 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.692 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.692 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.693 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==>  Preparing: select * from comment where question_id=? and type=2 order by gmt_create Desc 
+2019-10-17 18:42:56.693 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==> Parameters: 124(Integer)
+2019-10-17 18:42:56.694 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : <==      Total: 2
+2019-10-17 18:42:56.694 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.694 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.695 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.695 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.695 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.696 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.696 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.696 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.697 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.697 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==>  Preparing: select * from comment where question_id=? and type=2 order by gmt_create Desc 
+2019-10-17 18:42:56.697 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==> Parameters: 120(Integer)
+2019-10-17 18:42:56.698 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : <==      Total: 0
+2019-10-17 18:42:56.698 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.698 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.699 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.699 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==>  Preparing: select * from comment where question_id=? and type=2 order by gmt_create Desc 
+2019-10-17 18:42:56.699 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==> Parameters: 119(Integer)
+2019-10-17 18:42:56.700 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : <==      Total: 1
+2019-10-17 18:42:56.700 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.700 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.700 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.701 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.701 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.701 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.701 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==>  Preparing: select * from comment where question_id=? and type=2 order by gmt_create Desc 
+2019-10-17 18:42:56.701 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : ==> Parameters: 114(Integer)
+2019-10-17 18:42:56.703 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.CommentMapper.selectSecondLevel  : <==      Total: 1
+2019-10-17 18:42:56.703 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:42:56.703 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:42:56.704 DEBUG 5132 --- [http-nio-80-exec-4] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:42:56.704 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.QusertionInfoMapper.findByTag    : ==>  Preparing: select * from question_info where tag=? and id!=? order by gmt_create Desc 
+2019-10-17 18:42:56.704 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.QusertionInfoMapper.findByTag    : ==> Parameters: 祝福(String), 28(Integer)
+2019-10-17 18:42:56.704 DEBUG 5132 --- [http-nio-80-exec-4] c.m.b.m.QusertionInfoMapper.findByTag    : <==      Total: 0
+2019-10-17 18:42:56.741 DEBUG 5132 --- [http-nio-80-exec-8] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:56.741 DEBUG 5132 --- [http-nio-80-exec-8] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:56.741 DEBUG 5132 --- [http-nio-80-exec-8] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:56.742 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:56.742 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:56.742 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:56.745 DEBUG 5132 --- [http-nio-80-exec-8] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:56.746 DEBUG 5132 --- [http-nio-80-exec-8] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:56.746 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:56.746 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:56.747 DEBUG 5132 --- [http-nio-80-exec-8] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:56.750 DEBUG 5132 --- [http-nio-80-exec-8] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:56.751 DEBUG 5132 --- [http-nio-80-exec-8] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:56.755 DEBUG 5132 --- [http-nio-80-exec-8] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:56.755 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:42:56.760 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:42:56.760 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:42:56.761 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:44:30.678 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:44:30.678 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:44:30.679 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:44:30.679 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.QusertionInfoMapper.findByPage   : ==>  Preparing: select * from question_info order by gmt_create Desc limit ?,? 
+2019-10-17 18:44:30.680 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.QusertionInfoMapper.findByPage   : ==> Parameters: 0(Integer), 5(Integer)
+2019-10-17 18:44:30.681 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.QusertionInfoMapper.findByPage   : <==      Total: 5
+2019-10-17 18:44:30.681 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:44:30.683 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:44:30.683 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:44:30.683 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:44:30.683 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 15(Integer)
+2019-10-17 18:44:30.684 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:44:30.684 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:44:30.685 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:44:30.686 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:44:30.686 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:44:30.686 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 10(Integer)
+2019-10-17 18:44:30.687 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:44:30.689 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : ==>  Preparing: select * from user_info where id=? 
+2019-10-17 18:44:30.689 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : ==> Parameters: 11(Integer)
+2019-10-17 18:44:30.689 DEBUG 5132 --- [http-nio-80-exec-7] c.m.blog.mapper.UserMapper.findById      : <==      Total: 1
+2019-10-17 18:44:30.690 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.Q.findAll_COUNT                  : ==>  Preparing: SELECT count(0) FROM question_info 
+2019-10-17 18:44:30.690 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.Q.findAll_COUNT                  : ==> Parameters: 
+2019-10-17 18:44:30.691 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.Q.findAll_COUNT                  : <==      Total: 1
+2019-10-17 18:44:30.691 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.QusertionInfoMapper.findAll      : ==>  Preparing: select * from question_info order by gmt_create Desc LIMIT ? 
+2019-10-17 18:44:30.691 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.QusertionInfoMapper.findAll      : ==> Parameters: 5(Integer)
+2019-10-17 18:44:30.692 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.QusertionInfoMapper.findAll      : <==      Total: 5
+2019-10-17 18:44:30.692 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.Q.findHostQuestion               : ==>  Preparing: select * from question_info order by comment_count Desc limit 0,5 
+2019-10-17 18:44:30.692 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.Q.findHostQuestion               : ==> Parameters: 
+2019-10-17 18:44:30.693 DEBUG 5132 --- [http-nio-80-exec-7] c.m.b.m.Q.findHostQuestion               : <==      Total: 5
+2019-10-17 18:44:30.731 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:44:30.731 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:44:30.732 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:44:30.736 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:44:30.736 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:44:30.739 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:44:30.739 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:44:30.739 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:44:30.744 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:44:30.744 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:44:30.745 DEBUG 5132 --- [http-nio-80-exec-9] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:44:30.745 DEBUG 5132 --- [http-nio-80-exec-1] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:44:30.745 DEBUG 5132 --- [http-nio-80-exec-10] c.m.blog.mapper.UserMapper.findByToken   : ==>  Preparing: select * from user_info where token=? 
+2019-10-17 18:44:30.745 DEBUG 5132 --- [http-nio-80-exec-10] c.m.blog.mapper.UserMapper.findByToken   : ==> Parameters: a464c709-107c-4634-8ba4-e6d7fc771858(String)
+2019-10-17 18:44:30.748 DEBUG 5132 --- [http-nio-80-exec-10] c.m.blog.mapper.UserMapper.findByToken   : <==      Total: 1
+2019-10-17 18:44:59.171  INFO 5132 --- [Thread-21] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-17 18:44:59.176  INFO 5132 --- [Thread-21] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2019-10-17 18:44:59.703  INFO 5132 --- [restartedMain] com.mystudy.blog.BlogApplication         : Starting BlogApplication on PC-20190623ACFO with PID 5132 (C:\Users\Administrator\IdeaProjects\blog\target\classes started by Administrator in C:\Users\Administrator\IdeaProjects\blog)
+2019-10-17 18:44:59.703  INFO 5132 --- [restartedMain] com.mystudy.blog.BlogApplication         : No active profile set, falling back to default profiles: default
+2019-10-17 18:45:00.132  INFO 5132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-10-17 18:45:00.134  INFO 5132 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-17 18:45:00.134  INFO 5132 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-10-17 18:45:00.159  INFO 5132 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-17 18:45:00.159  INFO 5132 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 453 ms
+2019-10-17 18:45:00.328  INFO 5132 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-17 18:45:00.352  INFO 5132 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-10-17 18:45:00.438  INFO 5132 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-17 18:45:00.464  INFO 5132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-10-17 18:45:00.467  INFO 5132 --- [restartedMain] com.mystudy.blog.BlogApplication         : Started BlogApplication in 0.798 seconds (JVM running for 12507.281)
+2019-10-17 18:45:00.470  INFO 5132 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-10-17 19:33:01.715  INFO 5132 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-17 19:33:01.717  INFO 5132 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-17 19:33:01.721  INFO 5132 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2019-10-17 19:33:01.723  INFO 5132 --- [http-nio-80-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} inited
+2019-10-17 19:36:56.928  INFO 10356 --- [restartedMain] com.mystudy.blog.BlogApplication         : Starting BlogApplication on PC-20190623ACFO with PID 10356 (C:\Users\Administrator\IdeaProjects\blog\target\classes started by Administrator in C:\Users\Administrator\IdeaProjects\blog)
+2019-10-17 19:36:56.929  INFO 10356 --- [restartedMain] com.mystudy.blog.BlogApplication         : No active profile set, falling back to default profiles: default
+2019-10-17 19:36:57.001  INFO 10356 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-10-17 19:36:57.002  INFO 10356 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-10-17 19:36:57.199  WARN 10356 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2019-10-17 19:36:58.836  INFO 10356 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-10-17 19:36:58.865  INFO 10356 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-17 19:36:58.866  INFO 10356 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-10-17 19:36:58.969  INFO 10356 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-17 19:36:58.969  INFO 10356 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1967 ms
+2019-10-17 19:36:59.443  INFO 10356 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-17 19:36:59.514  INFO 10356 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-10-17 19:36:59.892  INFO 10356 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-17 19:36:59.949  INFO 10356 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-10-17 19:36:59.953  INFO 10356 --- [restartedMain] com.mystudy.blog.BlogApplication         : Started BlogApplication in 3.798 seconds (JVM running for 5.557)
+2019-10-17 19:37:26.132  INFO 10356 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-17 19:37:26.133  INFO 10356 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-17 19:37:26.140  INFO 10356 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-10-17 19:37:26.221  INFO 10356 --- [http-nio-80-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-10-17 21:02:13.517  INFO 10720 --- [restartedMain] com.mystudy.blog.BlogApplication         : Starting BlogApplication on PC-20190623ACFO with PID 10720 (C:\Users\Administrator\IdeaProjects\blog\target\classes started by Administrator in C:\Users\Administrator\IdeaProjects\blog)
+2019-10-17 21:02:13.520  INFO 10720 --- [restartedMain] com.mystudy.blog.BlogApplication         : No active profile set, falling back to default profiles: default
+2019-10-17 21:02:13.609  INFO 10720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-10-17 21:02:13.609  INFO 10720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-10-17 21:02:13.879  WARN 10720 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2019-10-17 21:02:15.221  INFO 10720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-10-17 21:02:15.246  INFO 10720 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-17 21:02:15.247  INFO 10720 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-10-17 21:02:15.349  INFO 10720 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-17 21:02:15.349  INFO 10720 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1739 ms
+2019-10-17 21:02:15.911  INFO 10720 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-17 21:02:15.981  INFO 10720 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-10-17 21:02:16.301  INFO 10720 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-17 21:02:16.355  INFO 10720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-10-17 21:02:16.359  INFO 10720 --- [restartedMain] com.mystudy.blog.BlogApplication         : Started BlogApplication in 3.559 seconds (JVM running for 5.095)
