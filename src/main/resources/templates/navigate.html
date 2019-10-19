@@ -12,10 +12,10 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">博客</span>
                     </button>
-                    <a class="navbar-brand" href="/hello">博客</a>
+                    <a class="navbar-brand" href="/">博客</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <form class="navbar-form navbar-left" action="/hello">
+                    <form class="navbar-form navbar-left" action="/">
                         <div class="form-group">
                             <input type="text" class="form-control" name="request" placeholder="搜索问题">
                         </div>
@@ -26,16 +26,14 @@
                             <a href="/publish">发布</a>
                         </li>
                         <li th:if="${session.user==null}">
-                            <a th:if="login!=null" style="color: red;font-weight: bolder" href="https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri=http://localhost:80/callback&scope=user&state=1 ">登录</a>
-                            <a th:if="login==null" href="https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri=http://localhost:80/callback&scope=user&state=1 ">登录</a>
+                            <a th:if="${session.isLogin}!=null" style="color: red;" href="https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri=http://106.75.24.127/callback&scope=user&state=1">登录</a>
+                            <a th:if="${session.isLogin}==null" href="https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri=http://106.75.24.127/callback&scope=user&state=1">登录</a>
                         </li>
                         <li class="dropdown" th:if="${session.user!=null}">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span th:text="${session.user.getName()}"></span>
                                 <span class="caret"></span>
                             </a>
-                            <!-- <span class="caret"></span>
-                             <span class="caret"></span>-->
                             <ul class="dropdown-menu">
                                 <li><a href="/profile/question">我的问题</a></li>
                                 <li><a href="/logout">退出登录</a></li>

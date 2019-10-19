@@ -1,14 +1,17 @@
 $(function () {
 
+    var publicIp = "http://106.75.24.127";
+
     $(".iconboss1").click(function(){
 
         var commentId = $(this).attr("var");
         var status = $(this).attr("status");
+        var newUrl = publicIp+"/comment/secondLevel";
 
         if(status=="true"){
             $.ajax({
                 type:"POST",
-                url:"http://localhost:80/comment/secondLevel",
+                url:newUrl,
                 data:{
                     "commentId":commentId,
                     "like":1
@@ -45,7 +48,7 @@ $(function () {
         }else {
             $.ajax({
                 type:"POST",
-                url:"http://localhost:80/comment/secondLevel",
+                url:newUrl,
                 data:{
                     "commentId":commentId,
                     "like":-1
@@ -84,11 +87,12 @@ $(function () {
     $(".iconboss2").click(function(){
         var commentId = $(this).attr("var");
         var status = $(this).attr("status");
+        var newUrl = publicIp+"/comment/secondLevel";
 
         if(status=="true"){
             $.ajax({
                 type:"POST",
-                url:"http://localhost:80/comment/secondLevel",
+                url:newUrl,
                 data:{
                     "commentId":commentId,
                     "dislike":1
@@ -122,7 +126,7 @@ $(function () {
         }else {
             $.ajax({
                 type:"POST",
-                url:"http://localhost:80/comment/secondLevel",
+                url:newUrl,
                 data:{
                     "commentId":commentId,
                     "dislike":-1
@@ -192,9 +196,11 @@ $(function () {
        var question_id = $("#question_id").val();
        var type = $("#type").val();
        var content = $("#content").val();
+       var newUrl = publicIp+"/comment";
+
         $.ajax({
             type:"POST",
-            url:"http://localhost:80/comment",
+            url:newUrl,
             data:{
                 "parent_id":parent_id,
                 "question_id":question_id,
@@ -209,7 +215,9 @@ $(function () {
                     if(data.status=="fail"&&data.message=="用户未登录"){
                         var isAccepted = confirm(data.message);
                         if(isAccepted){
-                            window.open("https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri=http://localhost:80/callback&scope=user&state=1 ");
+
+                            var openUrl = "https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri="+publicIp+"/callback&scope=user&state=1 ";
+                            window.open(openUrl);
                             window.localStorage.setItem("close","true");
                        }
                     }else {
@@ -238,6 +246,7 @@ $(function () {
         var textarea = $(s1).val();
         var commentator = $(s2).val();
         var append = $(s3);
+        var newUrl = publicIp+"/comment";
 
         if(textarea==null||textarea==""){
             alert("评论内容为空");
@@ -246,7 +255,7 @@ $(function () {
 
         $.ajax({
             type:"POST",
-            url:"http://localhost:80/comment",
+            url:newUrl,
             data:{
                 "parent_id":commentator,
                 "question_id":commentId,
@@ -289,7 +298,8 @@ $(function () {
                     if(data.status=="fail"&&data.message=="用户未登录"){
                         var isAccepted = confirm(data.message);
                         if(isAccepted){
-                            window.open("https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri=http://localhost:80/callback&scope=user&state=1 ");
+                            var openUrl = "https://github.com/login/oauth/authorize?client_id=64e70d915680d856dec0&redirect_uri="+publicIp+"/callback&scope=user&state=1 ";
+                            window.open(openUrl);
                             window.localStorage.setItem("close","true");
                         }
                     }else {
@@ -302,6 +312,5 @@ $(function () {
             }
         });
         return false;
-
     });
 });

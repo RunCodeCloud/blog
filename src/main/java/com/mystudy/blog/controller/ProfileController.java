@@ -55,9 +55,9 @@ public class ProfileController {
                           Model model){
 
         User user = (User) request.getSession().getAttribute("user");
-
         if(user==null){
-            return "hello";
+            request.getSession().setAttribute("isLogin","false");
+            return "forward:/";
         }
 
         if("question".equals(action)){
@@ -87,10 +87,8 @@ public class ProfileController {
 
             model.addAttribute("message",dtoList);
 
-
-
-            //查询所有status为0的
-            int news = messageMapper.findStatus().size();
+            //查询跟自己有关的message，所有status为0的
+            int news = messageMapper.findStatus(user.getId()).size();
             model.addAttribute("news",news);
             //分页
             PageHelper.startPage(pageNo,pageSize);
@@ -98,7 +96,6 @@ public class ProfileController {
             PageInfo<Message> pageInfo = new PageInfo<>(list,4);
             model.addAttribute("pageInfo",pageInfo);
         }
-
         return "profile";
     }
 

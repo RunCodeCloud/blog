@@ -47,8 +47,8 @@ public class QuestionController {
 
         User user = (User) request.getSession().getAttribute("user");
         if(user==null){
-            request.getSession().setAttribute("login","false");
-            return "forward:/hello";
+            request.getSession().setAttribute("isLogin","false");
+            return "forward:/";
         }
 
         QuestionDto questionDto = service.findById(id);

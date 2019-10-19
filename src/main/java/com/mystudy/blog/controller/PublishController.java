@@ -88,13 +88,13 @@ public class PublishController {
 
                 qusertionInfoMapper.insertQuestionInfo(questionInfo);
             }else {
-                int result = qusertionInfoMapper.updateById(title,description,tag,id);
+                qusertionInfoMapper.updateById(title,description,tag,id);
             }
 
         }else {
             model.addAttribute("error","请先登录");
             return "publish";
         }
-        return "redirect:/hello";
+        return "redirect:/";
     }
 }

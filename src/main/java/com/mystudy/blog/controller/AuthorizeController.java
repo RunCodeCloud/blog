@@ -37,26 +37,26 @@ public class AuthorizeController {
     private String clientId;
     @Value(value = "${github.client.secret}")
     private String clientSecret;
-    @Value(value = "${github.redirect.uri}")
-    private String redirectUri;
+    //@Value(value = "${github.redirect.uri}")
+    //private String redirectUri;
 
+    @Value(value = "${public.ip}")
+    private String publicIp;
 
     @RequestMapping(value = "/callback",method = {RequestMethod.GET})
     public String callback(@Param(value = "code")String code,
                            @Param(value = "state")String state,
-                           HttpServletRequest request,
                            HttpServletResponse response) throws IOException {
 
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setClient_id(clientId);
         accessTokenDTO.setClient_secret(clientSecret);
-        accessTokenDTO.setRedirect_uri(redirectUri);
+        accessTokenDTO.setRedirect_uri(publicIp);
         accessTokenDTO.setCode(code);
         accessTokenDTO.setState(state);
-
         String accessToken = gitHubProvider.getAccessToken(accessTokenDTO);
-        GitHubUser gitHubUser = gitHubProvider.getGitHubUser(accessToken);
 
+        GitHubUser gitHubUser = gitHubProvider.getGitHubUser(accessToken);
         if(gitHubUser!=null){
             User u = service.findUserByAccountId(gitHubUser.getId().toString());
             if(u==null){
@@ -74,9 +74,9 @@ public class AuthorizeController {
             }else {
                 response.addCookie(new Cookie("token",u.getToken()));
             }
-            return "redirect:/hello";
+            return "redirect:/";
         }else {
-            return "redirect:/hello";
+            return "redirect:/";
         }
     }
 
@@ -87,6 +87,6 @@ public class AuthorizeController {
         Cookie cookie = new Cookie("token",null);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-        return "redirect:/hello";
+        return "redirect:/";
     }
 }

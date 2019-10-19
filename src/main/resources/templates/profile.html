@@ -44,15 +44,13 @@
                 <!--  需要一个ajax请求   用来改变导航栏上的通知数  question/问题id  跳转到被人回答问题的页面-->
                 <!-- message什么时候产生  评论回复问题时产生  评论回复评论时产生--->
                 <!--只要是跟自己发布问题有关的信息，都会有message产生-->
-
                 <!--评论问题   加一个评论按钮，点击就在评论内容前加上@在评论内容-->
-
                 <p th:each="m:${message}" style="margin-top: 40px">
                     <span th:text="${m.commentator_name}"></span>
                     <span> 回复了</span>
                     <span th:if="${m.operation==1}" th:text="问题"></span>
                     <span th:if="${m.operation==2}" th:text="评论"></span>
-                    <a th:href="'http://localhost:80/question/'+${m.question_id}+'?message='+${m.id}" style="text-decoration: none" th:text="${m.content}"></a>
+                    <a th:href="'/question/'+${m.question_id}+'?message='+${m.id}" style="text-decoration: none" th:text="${m.content}"></a>
                     <span th:if="${m.status==0}" style="background-color: #B80000;color: white;">未读</span>
                 </p>
             </div>

@@ -35,6 +35,8 @@ public class CommentController{
     @Resource
     MessageMapper messageMapper;
 
+    private String publicIp = "http://106.75.24.127";
+
     @RequestMapping(value = "/comment",method = {RequestMethod.POST})
     @ResponseBody
     @Transactional
@@ -96,7 +98,7 @@ public class CommentController{
             qusertionInfoMapper.updateComment(info);
 
             map.put("status","success");
-            String url = "http://localhost:80/question/"+info.getId();
+            String url = publicIp+"/question/"+info.getId();
             map.put("url",url);
 
             //message

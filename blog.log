@@ -1,0 +1,41 @@
+2019-10-19 10:29:57.950  INFO 7780 --- [restartedMain] com.mystudy.blog.BlogApplication         : Starting BlogApplication on PC-20190623ACFO with PID 7780 (C:\Users\Administrator\IdeaProjects\blog\target\classes started by Administrator in C:\Users\Administrator\IdeaProjects\blog)
+2019-10-19 10:29:57.951  INFO 7780 --- [restartedMain] com.mystudy.blog.BlogApplication         : No active profile set, falling back to default profiles: default
+2019-10-19 10:29:58.491  INFO 7780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-10-19 10:29:58.493  INFO 7780 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-19 10:29:58.494  INFO 7780 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-10-19 10:29:58.514  INFO 7780 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-19 10:29:58.514  INFO 7780 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 558 ms
+2019-10-19 10:29:58.754  INFO 7780 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-19 10:29:58.777  INFO 7780 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-10-19 10:29:58.875  INFO 7780 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-19 10:29:58.913  INFO 7780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-10-19 10:29:58.914  INFO 7780 --- [restartedMain] com.mystudy.blog.BlogApplication         : Started BlogApplication in 1.032 seconds (JVM running for 72443.949)
+2019-10-19 10:29:58.917  INFO 7780 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-10-19 10:36:53.841  INFO 7780 --- [Thread-25] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-19 10:36:54.531  INFO 7780 --- [restartedMain] com.mystudy.blog.BlogApplication         : Starting BlogApplication on PC-20190623ACFO with PID 7780 (C:\Users\Administrator\IdeaProjects\blog\target\classes started by Administrator in C:\Users\Administrator\IdeaProjects\blog)
+2019-10-19 10:36:54.532  INFO 7780 --- [restartedMain] com.mystudy.blog.BlogApplication         : No active profile set, falling back to default profiles: default
+2019-10-19 10:36:55.054  INFO 7780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-10-19 10:36:55.054  INFO 7780 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-19 10:36:55.055  INFO 7780 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-10-19 10:36:55.072  INFO 7780 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-19 10:36:55.072  INFO 7780 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 535 ms
+2019-10-19 10:36:55.230  INFO 7780 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-19 10:36:55.252  INFO 7780 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-10-19 10:36:55.366  INFO 7780 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-19 10:36:55.399  INFO 7780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-10-19 10:36:55.400  INFO 7780 --- [restartedMain] com.mystudy.blog.BlogApplication         : Started BlogApplication in 0.905 seconds (JVM running for 72860.427)
+2019-10-19 10:36:55.403  INFO 7780 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-10-19 10:53:16.108  INFO 7780 --- [Thread-31] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-19 10:53:16.923  INFO 7780 --- [restartedMain] com.mystudy.blog.BlogApplication         : Starting BlogApplication on PC-20190623ACFO with PID 7780 (C:\Users\Administrator\IdeaProjects\blog\target\classes started by Administrator in C:\Users\Administrator\IdeaProjects\blog)
+2019-10-19 10:53:16.924  INFO 7780 --- [restartedMain] com.mystudy.blog.BlogApplication         : No active profile set, falling back to default profiles: default
+2019-10-19 10:53:17.386  INFO 7780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-10-19 10:53:17.388  INFO 7780 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-19 10:53:17.388  INFO 7780 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-10-19 10:53:17.402  INFO 7780 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-19 10:53:17.402  INFO 7780 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 475 ms
+2019-10-19 10:53:17.557  INFO 7780 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-19 10:53:17.576  INFO 7780 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-10-19 10:53:17.687  INFO 7780 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-19 10:53:17.710  INFO 7780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-10-19 10:53:17.711  INFO 7780 --- [restartedMain] com.mystudy.blog.BlogApplication         : Started BlogApplication in 0.823 seconds (JVM running for 73842.72)
+2019-10-19 10:53:17.713  INFO 7780 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

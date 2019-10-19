@@ -28,6 +28,6 @@ public interface MessageMapper {
     @Select(value = "select * from message where originator_id=#{userId} order  by gmt_create Desc limit #{offset},#{pageSize}")
     List<Message> findByUserIdAndLimit(Integer userId, Integer offset, Integer pageSize);
 
-    @Select(value = "select * from message where status=0")
-    List<Message> findStatus();
+    @Select(value = "select * from message where status=0 and originator_id=#{originator_id}")
+    List<Message> findStatus(Integer originator_id);
 }

@@ -52,7 +52,7 @@
                     <span> 回复了</span>
                     <span th:if="${m.operation==1}" th:text="问题"></span>
                     <span th:if="${m.operation==2}" th:text="评论"></span>
-                    <a th:href="'http://localhost:80/question/'+${m.question_id}+'?message='+${m.id}" style="text-decoration: none" th:text="${m.content}"></a>
+                    <a th:href="'http://192.168.206.1:80/question/'+${m.question_id}+'?message='+${m.id}" style="text-decoration: none" th:text="${m.content}"></a>
                     <span th:if="${m.status==0}" style="background-color: #B80000;color: white;">未读</span>
                 </p>
             </div>

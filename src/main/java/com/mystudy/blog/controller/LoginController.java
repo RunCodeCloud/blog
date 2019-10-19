@@ -34,11 +34,10 @@ public class LoginController {
     @Resource
     UserMapper userMapper;
 
-    @RequestMapping(value = "/hello",method = {RequestMethod.GET})
+    @RequestMapping(value = "/",method = {RequestMethod.GET})
     public String hello(@RequestParam(value = "pageNo",defaultValue = "1")Integer pageNo,
                         @RequestParam(value = "pageSize",defaultValue="5")Integer pageSize,
                         @RequestParam(value = "request",defaultValue = "false")String req,
-                        HttpServletRequest request,
                         Model model){
 
         //条件查询，查询问题title关键字    req
@@ -55,27 +54,11 @@ public class LoginController {
         PageHelper.startPage(pageNo,pageSize);
         List<QuestionInfo> infos = qusertionInfoMapper.findAll();
 
-        System.out.println(infos+"0000");
-
-        if(infos==null){
-            System.out.println("hello");
-        }
-
         PageInfo<QuestionInfo> pageInfo = new PageInfo<>(infos,4);
         model.addAttribute("pageInfo",pageInfo);
-
-        System.out.println("111"+pageInfo);
-
         List<QuestionInfo> hotQuestion = qusertionInfoMapper.findHostQuestion();
         model.addAttribute("hotQuestion",hotQuestion);
 
-
-        String login = (String) request.getSession().getAttribute("login");
-        if("false".equals(login)){
-            model.addAttribute("login","请登录后浏览");
-            return "index";
-        }else {
-            return "index";
-        }
+        return "index";
     }
 }
